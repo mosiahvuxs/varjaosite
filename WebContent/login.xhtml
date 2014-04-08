@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/main.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="#{facesContext.externalContext.requestContextPath}/css/media.css"/>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-login-habilita-quem-somos.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-login-habilita-atuacao.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-login-habilita-clientes.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-login-visivel.js"></script>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<title>Varjão - Clipping</title>
+</h:head>
+
+<h:body>
+<div class="site-wrapper"> 
+  <!--INÍCIO DO INCLUDE NA ÁREA DE LOGIN DO CLIPPING-->
+  <div class="barra-topo"></div>
+  <div class="sombra-topo-wrapper">
+    <div class="sombra-topo-esquerda"></div>
+    <div class="sombra-topo-direita"></div>
+  </div>
+  <div class="header">
+    <div class="logo"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/images/logo.png" border="0"/></a></div>
+    <menu>
+    <div class="menu-wrapper">
+      <div class="item-menu"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml">HOME</a></div>
+      <div class="item-menu-quem-somos"><a href="#">QUEM SOMOS</a></div>
+      <div class="item-menu-atuacao"><a href="#">ATUAÇÃO</a></div>
+      <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
+      <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
+      <div class="item-menu"><a href="contato.xhtml">CONTATO</a></div>
+      <h:panelGroup rendered="#{empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu-login"><a href="login.xhtml">LOGIN</a></div>
+      </h:panelGroup>
+      <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu-login">
+      <h:form id="formLogout">
+      	<h:commandLink value="SAIR" action="#{loginFaces.sair}"/>
+      </h:form>
+      </div>
+      </h:panelGroup>
+    </div>
+    </menu>
+    <div class="submenu-login"></div>
+    <div class="submenu-quem-somos">
+      <div class="submenu-wrapper-1">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="historia.xhtml">HISTÓRIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="diretoria.xhtml">DIRETORIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-atuacao">
+      <div class="submenu-wrapper-2">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="comunicacao.xhtml">COMUNICAÇÃO INTEGRADA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clipping.xhtml">CLIPPING E MONITORAMENTO</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-clientes">
+      <div class="submenu-wrapper-3">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="cases.xhtml">CASES DE SUCESSO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes.xhtml">CLIENTES DO GRUPO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes-atendidos.xhtml">CLIENTES ATENDIDOS</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="sombra-wrapper-submenu">
+      <div class="sombra-esquerda-submenu"></div>
+      <div class="sombra-direita-submenu"></div>
+    </div>
+  </div>
+  <div class="content-login">
+    <div class="mensagem-login">Preencha os campos abaixo para efetuar o login.</div>
+    <div class="info-login"></div>
+    <!--ÁREA DO LOGIN - IMPORTANTE-->
+	<h:form id="login-obrigatorio" prependId="false">
+		
+	<p:growl showDetail="true" sticky="false" life="3000" showSummary="false"/>
+				
+	  <div class="login-obrigatorio-wrapper">
+	  	<h:outputLabel value="Usuário" styleClass="login-obrigatorio"/>
+	    <h:inputText value="#{loginFaces.cliente.autenticacao.login}" styleClass="login-obrigatorio" id="login"/>
+	  </div>
+	 	 
+  		<div class="clear"></div>
+	  
+	  <div class="login-obrigatorio-wrapper">
+	  	<h:outputLabel value="Senha" styleClass="login-obrigatorio"/>
+	    <h:inputSecret value="#{loginFaces.cliente.autenticacao.senha}" id="senha" styleClass="login-obrigatorio"/>
+	  </div>
+	  
+	  <div class="clear"></div>
+	  
+	  <h:commandButton action="#{loginFaces.autenticar}" value="LOGIN" styleClass="botao-login-obrigatorio"/>
+	  
+	</h:form>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <!--INCLUDE RODAPÉ-->
+  <div class="sombra-base"></div>
+  <footer class="footer">
+    <div class="endereco">Av. Tancredo Neves, 909, Ed. André Guimarães Business Center, Salas 1104 e 1105, CEP 41820-021, Salvador, Bahia, (71) 3444-6800, www.varjao.com</div>
+  </footer>
+</div>
+</h:body>
+</html>

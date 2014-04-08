@@ -1,0 +1,971 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media all and (min-width: 2560px){
+
+#home-bar{
+	min-height: 400px;
+}
+	
+.left-box{
+	width: 15%;
+}
+
+.box-arrow{
+	margin-top: -24%;
+}
+
+.sombra-base{
+	margin-top: 25%;
+}
+
+.texto-apresentacao, .texto-descricao, 
+.texto-servicos{
+	width: 95%;
+	font-size: 20px;
+	margin: 2% 0 0 0;
+}
+
+.texto-apresentacao-historia{
+	min-height: 628px;
+}
+
+.content-clipping-impresso{
+	min-height: 1000px;
+}
+
+.content-page-portifolio{
+	min-height: 1000px;
+}
+
+.texto-case{
+	min-height: 400px;
+}
+
+.tarja-img{
+	width: 28%;
+	top: 50%;
+}
+
+.content-contato{
+	margin: 8% auto 26% auto;
+}
+
+.contato-wrapper{
+	width: 50%;
+}
+
+.container-marcas{
+	width: 20%;
+	margin-left: 12%;
+	float: left;
+}
+
+.content-contato-right{
+	width: 45%;
+}
+
+.texto-contato{
+	font-size: 16px;
+}
+
+form#contato{
+	width: 41%;
+}
+
+label.login-obrigatorio{
+	font-size: 26px;
+	margin-top: 0;
+}
+
+input.login-obrigatorio{
+	width: 300px;
+}
+
+.content-login{
+	margin: 18% 0 25% 0;
+}
+
+}
+
+@media all and (min-width: 1920px) and (max-width: 2559px){
+
+#home-bar{
+	min-height: 400px;
+}
+	
+.left-box{
+	width: 20%;
+}
+
+.box-arrow{
+	margin-top: -24%;
+}
+
+.sombra-base{
+	margin-top: 24%;
+}
+
+.texto-apresentacao, .texto-descricao, 
+.texto-servicos{
+	width: 93%;
+	font-size: 16px;
+	margin: 2% 0 0 0;
+}
+
+.texto-apresentacao-historia{
+	min-height: 470px;
+}
+
+.content-clipping-impresso{
+	min-height: 1000px;
+}
+
+.content-page-portifolio{
+	min-height: 1000px;
+}
+
+.texto-case{
+	min-height: 400px;
+}
+
+.tarja-img{
+	width: 28%;
+	top: 50%;
+}
+
+.contato-wrapper{
+	width: 50%;
+}
+
+.container-marcas{
+	width: 30%;
+}
+
+.content-contato-right{
+	width: 45%;
+}
+
+}
+
+@media all and (min-width: 1680px) and (max-width: 1919px){
+
+#home-bar{
+	min-height: 400px;
+}
+	
+.left-box{
+	width: 23%;
+}
+
+.box-arrow{
+	margin-top: -24%;
+}
+
+.sombra-base{
+	margin-top: 24%;
+}
+
+.texto-apresentacao, .texto-descricao, 
+.texto-servicos{
+	width: 93%;
+	font-size: 16px;
+	margin: 2% 0 0 0;
+}
+
+.texto-apresentacao-historia{
+	min-height: 410px;
+}
+
+.content-clipping-impresso{
+	min-height: 1000px;
+}
+
+.content-page-portifolio{
+	min-height: 1000px;
+}
+
+.texto-case{
+	min-height: 400px;
+}
+
+.tarja-img{
+	width: 28%;
+	top: 50%;
+}
+
+.contato-wrapper{
+	width: 50%;
+}
+
+form#contato{
+	width: 62%;
+}
+
+.container-marcas{
+	width: 30%;
+}
+
+.content-contato-right{
+	width: 45%;
+}
+
+.content-login{
+	margin-top: 12%;
+}
+
+}
+
+@media all and (min-width: 1600px) and (max-width: 1679px){
+
+#home-bar{
+	min-height: 400px;
+}
+	
+.left-box{
+	width: 24%;
+}
+
+.box-arrow{
+	margin-top: -24%;
+}
+
+.sombra-base{
+	margin-top: 30%;
+}
+
+.texto-apresentacao, .texto-descricao, 
+.texto-servicos{
+	width: 93%;
+	font-size: 16px;
+	margin: 2% 0 0 0;
+}
+
+.texto-apresentacao-historia{
+	min-height: 395px;
+}
+
+.content-cases{
+	margin-top: 10%;
+}
+
+.ver-case-1, .ver-case-2, .ver-case-3{
+	margin-top: 10%;
+}
+
+.content-clipping-impresso{
+	min-height: 1000px;
+}
+
+.content-page-portifolio{
+	min-height: 1000px;
+}
+
+.clipping-listagem-wrapper{
+	margin-top: 20px;
+}
+
+.texto-case{
+	min-height: 400px;
+}
+
+.tarja-img{
+	width: 28%;
+	top: 50%;
+}
+
+.contato-wrapper{
+	width: 50%;
+}
+
+form#contato{
+	width: 65%;
+}
+
+.container-marcas{
+	width: 25%;
+}
+
+.content-contato-right{
+	width: 45%;
+}
+
+.content-login{
+	margin-top: 20%;
+}
+
+}
+
+@media all and (min-width: 1366px) and (max-width: 1439px){
+
+.menu-wrapper{
+	width: 74%;
+}
+
+.widget-content-wrapper-comunicacao{
+	width: 49%;
+}
+
+.submenu-wrapper-1{
+	width: 33%;
+	margin: auto;
+}
+
+.submenu-wrapper-2{
+	width: 64%;
+	margin: auto;
+}
+
+.submenu-wrapper-3{
+	width: 75%;
+	margin: auto;
+}
+
+.field-container{
+	margin-left: 9%;
+}
+
+input.botao-pesquisar{
+	margin-left: 9%;
+}
+
+.texto-case{
+	height: 313px;
+}
+
+.tarja-img{
+	padding: 20px 7% 20px 7%;
+}
+
+form#contato{
+	width: 64%;
+}
+
+.texto-apresentacao-historia{
+	height: 332px;
+
+}
+
+form#login-obrigatorio{
+	width: 28%;
+}
+
+.clipping-mailing-radio {
+	width: 40%;
+}
+
+}
+
+@media all and (min-width: 1360px) and (max-width: 1365px){
+
+.menu-wrapper{
+	width: 68%;
+}
+
+.texto-case{
+	height: 312px;
+}
+
+.tarja-img{
+	padding: 20px 7% 20px 7%;
+}
+
+form.busca-avancada {
+	width: 58%;
+	margin-left: 0;
+}
+
+.widget-content-wrapper-comunicacao{
+	width: 45%;
+}
+
+form#login-obrigatorio{
+	width: 27%;
+}
+
+.clipping-mailing-radio {
+	width: 40%;
+}
+
+}
+
+
+@media all and (min-width: 1280px) and (max-width: 1359px){
+
+.menu-wrapper{
+	width: 72%;
+}
+
+.widget-content-wrapper-comunicacao{
+	width: 49%;
+}
+
+.item-menu-atuacao, .item-menu-clientes{
+	margin-left: 10%;
+}
+
+.item-menu-atuacao, .item-menu-clientes, 
+.item-menu-quem-somos, .item-menu{
+	margin-left: 5%;	
+}
+
+.submenu-wrapper-1{
+	width: 35%;
+	margin: auto;
+}
+
+.submenu-wrapper-2{
+	width: 68%;
+	margin: auto;
+}
+
+.submenu-wrapper-3{
+	width: 80%;
+	margin: auto;
+}
+
+.texto-apresentacao-historia{
+	height: 311px;
+}
+
+input.login{
+	margin-left: 10%;
+}
+
+#cadeado{
+	margin-left: 10%;
+}
+
+.texto-case{
+	height: 300px;
+}
+
+input.senha{
+	margin-left: 10%;
+}
+
+input.botao-login, input.botao-login-obrigatorio{
+	margin-left: 10%;
+}
+
+form#login-obrigatorio{
+	width: 32%;
+}
+
+.field-container{
+	margin-left: 8%;
+}
+
+input.botao-pesquisar{
+	margin-left: 8%;
+}
+
+.tarja-img{
+	font-size: 26px;
+	padding: 20px 8% 20px 8%;
+}
+
+form#contato{
+	width: 68%;
+}
+
+.sombra-base{
+	margin-top: 18%;
+}
+
+.clipping-mailing-radio {
+	width: 50%;
+	margin-top: 15%;
+}
+
+.icones-wrapper{
+	width: 9%;
+}
+
+.content-page-portifolio{
+	margin: 90px auto 0 auto;
+}
+
+.content-login {
+	margin-top: 17%;
+}
+
+.content-clipping-impresso {
+	margin-top: 5%;
+}
+
+}
+
+
+@media all and (min-width: 1152px) and (max-width: 1279px){
+
+.menu-wrapper{
+	width: 68%;
+}
+
+.widget-content-wrapper-comunicacao{
+	width: 53%;
+	
+}
+
+.item-menu-atuacao, .item-menu-clientes, 
+.item-menu-quem-somos, .item-menu{
+	margin-left: 3%;	
+}
+
+.submenu-wrapper-1{
+	width: 39%;
+	margin: auto;
+}
+
+.submenu-wrapper-2{
+	width: 76%;
+	margin: auto;
+}
+
+.submenu-wrapper-3{
+	width: 89%;
+	margin: auto;
+}
+
+.texto-apresentacao-historia{
+	height: 280px;
+}
+
+form.busca-avancada {
+	width: 52%;
+}
+
+input.login{
+	margin-left: 10%;
+}
+
+#cadeado{
+	margin-left: 10%;
+}
+
+input.senha{
+	margin-left: 10%;
+}
+
+input.botao-login, input.botao-login-obrigatorio{
+	margin-left: 10%;
+}
+
+form#login-obrigatorio{
+	width: 32%;
+}
+
+.field-container{
+	margin-left: 5%;
+}
+
+input.botao-pesquisar{
+	margin-left: 5%;
+}
+
+.item-menu-box {
+	padding: 17px;
+}
+
+.texto-case{
+	height: 280px;
+}
+
+.tarja-img{
+	font-size: 26px;
+	padding: 20px 6% 20px 7%;
+}
+
+form#contato{
+	width: 76%;
+}
+
+.clipping-mailing-radio {
+	width: 60%;
+}
+
+.clipping-info-mailing, .clipping-info-radio {
+	width: 32%;
+}
+
+.icones-wrapper{
+	width: 10%;
+}
+
+.icones-wrapper-impresso {
+	width: 7%;
+}
+
+.content-login {
+	margin-top: 12%;
+}
+
+}
+
+@media all and (min-width: 1024px) and (max-width: 1151px){
+
+.menu-wrapper{
+	width: 66%;
+}
+
+.widget-content-wrapper-comunicacao{
+	width: 59%;
+	
+}
+
+.widget-content-wrapper-clipping{
+	width: 45%;
+	
+}
+
+.item-menu-home, .item-menu-quem-somos, 
+.item-menu-atuacao, .item-menu-clientes,
+.item-menu-contato, .item-menu-login, 
+.item-menu, .item-menu-selected, 
+.item-menu-portifolio{
+	font-size: 14px;
+	margin-left: 3%;	
+}
+
+.submenu-wrapper-1{
+	width: 44%;
+	margin: auto;
+}
+
+.submenu-wrapper-2{
+	width: 85%;
+	margin: auto;
+}
+
+.submenu-wrapper-3{
+	width: 100%;
+	margin: auto;
+}
+
+.content-home-left{
+	width: 48%;
+	margin-left: 3%;
+	float: left;
+}
+
+.content-home-right{
+	width: 48%;
+	float: right;
+}
+
+.texto-capa {
+	width: 90%;
+}
+
+.texto-apresentacao-historia{
+	height: 248px;
+}
+
+.box-arrow{
+	margin-top: -34%;
+}
+
+.box-menu{
+	width: 116%;
+}
+
+.texto-apresentacao, .texto-descricao,
+.texto-servicos{
+	width: 80%;
+	max-height: 290px;
+	margin: 4% 0 0 10%;
+}
+
+.texto-case{
+	height: 260px;
+}
+
+input.login{
+	margin-left: 8%;
+}
+
+#cadeado{
+	margin-left: 8%;
+}
+
+input.senha{
+	margin-left: 8%;
+}
+
+input.botao-login, input.botao-login-obrigatorio{
+	margin-left: 8%;
+}
+
+form#login-obrigatorio{
+	width: 35%;
+}
+
+form.busca-avancada{
+	width: 60%;
+}
+
+.field-container{
+	margin-left: 5%;
+}
+
+input.botao-pesquisar{
+	margin-left: 5%;
+}
+
+.bem-vindo-wrapper{
+	display: none;
+}
+
+.clipping-listagem-wrapper{
+	width: 65%;
+}
+
+.texto-wrapper{
+	width: 85%;
+}
+
+.tarja-img{
+	font-size: 26px;
+	padding: 20px 3% 20px 3%;
+}
+
+form#contato{
+	width: 85%;
+}
+
+.clipping-mailing-radio{
+	width: 60%;
+}
+
+.icones-wrapper{
+	width: 11%;
+}
+
+.icones-wrapper-impresso {
+	width: 7%;
+
+}
+
+.clipping-info-mailing, .clipping-info-radio {
+	width: 36%;
+}
+
+.busca-wrapper{
+	margin: 2px 4% 0 0;
+}
+	
+input.busca{
+	width: 200px;
+	font-size: 15px;
+}
+
+.item-menu-submenu-quem-somos-home{
+	font-size: 16px;
+}
+
+.item-menu-submenu-atuacao-home{
+	font-size: 16px;
+}
+
+.item-menu-submenu-clientes-home{
+	font-size: 16px;
+}
+
+.item-menu-submenu-quem-somos-clipping{
+	font-size: 16px;
+}
+
+.item-menu-submenu-atuacao-clipping{
+	font-size: 16px;
+}
+
+.item-menu-submenu-clientes-clipping{
+	font-size: 16px;
+}
+
+.item-menu-submenu-quem-somos-comunicacao{
+	font-size: 16px;
+}
+
+.item-menu-submenu-atuacao-comunicacao{
+	font-size: 16px;
+}
+
+.item-menu-submenu-clientes-comunicacao{
+	font-size: 16px;
+}
+
+select.veiculo{
+	padding-left: 0;
+}
+
+.item-menu-box-clipping,
+.item-menu-box-comunicacao,
+.item-menu-box-selected,
+.item-menu-box-veiculos,
+.item-menu-box-veiculos-selected{
+	font-size: 24px;
+}
+
+.content-veiculo{
+	width: 70%;
+	height: 252px;
+	margin: 3% 0 0 4%;
+	overflow: auto;
+}
+
+}
+
+@media all and (min-width: 240px) and (max-width: 1023px){
+
+.menu-wrapper{
+	width: 68%;
+}
+
+.item-menu-home, .item-menu-quem-somos, 
+.item-menu-atuacao, .item-menu-clientes,
+.item-menu-contato, .item-menu-login, 
+.item-menu, .item-menu-selected, 
+.item-menu-portifolio{
+	font-size: 11px;
+	margin-left: 3%;	
+}
+
+.item-menu-home{
+	margin-left: 4%;
+}
+
+input.busca {
+	width: 140px;
+	font-size: 10px;
+}
+
+.submenu-home, .submenu-quem-somos, 
+.submenu-atuacao, .submenu-clientes,
+.submenu-contato, .submenu-login,
+.submenu-portifolio{
+	margin-top: -7px;
+}
+
+.submenu-wrapper-1{
+	width: 39%;
+}
+
+.submenu-wrapper-2{
+	width: 78%;
+}
+
+.submenu-wrapper-3{
+	width: 91%;
+}
+
+.barra-divisoria-azul{
+	margin: 10px 5px 0 5px;
+}
+
+.item-submenu, .item-submenu-selected{
+	font-size: 10px;
+	padding: 5px 0 0 0;
+	letter-spacing: 3px;
+}
+
+.widget-header{
+	margin-top: 33px;
+}
+
+.sombra-wrapper-submenu{
+	margin-top: 32px;
+}
+
+#content{
+	margin-top: -2px;
+}
+
+.content-cases{
+	margin-top: 25%;
+}
+
+.widget-content-wrapper-comunicacao{
+	width: 75%;
+}
+
+.widget-content-wrapper-clipping{
+	width: 56%;
+}
+
+.box-arrow {
+	margin: -30% 0 0 65%;
+}
+
+.texto-descricao, .texto-servicos{
+	margin-top: 10%;
+}
+
+.content-page-portifolio, .clipping-listagem-wrapper,
+.texto-apresentacao-historia, .texto-case, 
+.texto-descricao, .texto-servicos{
+	overflow: hidden;
+	height: auto;
+}
+
+
+.clipping-listagem-wrapper{
+	margin-top: 40px;
+}
+
+.item-menu-box, .item-menu-box-selected{
+	font-size: 15px;
+	padding: 15px;
+}
+
+form#login-obrigatorio{
+	width: 45%;
+}
+
+form#contato {
+	width: 108%;
+}
+
+.content-contato-right {
+	width: 34%;
+}
+
+form.busca-avancada {
+	width: 70%;
+	margin-left: 0;
+}
+
+.field-container {
+	margin-left: 2%;
+}
+
+input.botao-pesquisar{
+	margin-left: 6%;
+}
+
+.bem-vindo-wrapper{
+	display: none;
+}
+
+.texto-wrapper{
+	width: 80%;
+}
+
+.clipping-mailing-radio{
+	width: 70%;
+}
+
+.content-login {
+	margin-top: 27%;
+}
+
+.sombra-base{
+	margin-top: 60%;
+}
+
+.endereco{
+	font-size: 10px;
+}
+
+}

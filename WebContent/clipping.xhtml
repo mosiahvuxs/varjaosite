@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/main.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="#{facesContext.externalContext.requestContextPath}/css/media.css"/>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/jquery.js" type="text/javascript"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/jquery.maskedinput.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(function($){
+   $(".data-publicacao").mask("99/99/9999");
+   });
+</script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/scroll-remove-listagem.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-quem-somos.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-atuacao.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-clientes.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/ampliar-reduzir.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/ampliar-reduzir-impresso.js"></script>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<title>Varjão - Clipping</title>
+</h:head>
+
+<body>
+<div class="site-wrapper"> 
+  <!--INÍCIO DO INCLUDE NA ÁREA DE CLIPPING COM USUÁRIO AUTENTICADO-->
+  <div class="barra-topo"></div>
+  <div class="sombra-topo-wrapper">
+    <div class="sombra-topo-esquerda"></div>
+    <div class="sombra-topo-direita"></div>
+  </div>
+  <div class="header">
+    <div class="logo"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/images/logo.png" border="0"/></a></div>
+    <menu>
+    <div class="menu-wrapper">
+      <div class="item-menu"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml">HOME</a></div>
+      <div class="item-menu-quem-somos"><a href="#">QUEM SOMOS</a></div>
+      <div class="item-menu-atuacao"><a href="#">ATUAÇÃO</a></div>
+      <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
+      <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
+      <div class="item-menu"><a href="contato.xhtml">CONTATO</a></div>
+      <h:panelGroup rendered="#{empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu"><a href="login.xhtml">LOGIN</a></div>
+      </h:panelGroup>
+      <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu">
+      <h:form id="formLogout">
+      	<h:commandLink value="SAIR" action="#{loginFaces.sair}"/>
+      </h:form>
+      </div>
+      </h:panelGroup>
+    </div>
+    </menu>
+    <div class="submenu-quem-somos">
+      <div class="submenu-wrapper-1">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="historia.xhtml">HISTÓRIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="diretoria.xhtml">DIRETORIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-atuacao">
+      <div class="submenu-wrapper-2">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="comunicacao.xhtml">COMUNICAÇÃO INTEGRADA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clipping.xhtml">CLIPPING E MONITORAMENTO</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-clientes">
+      <div class="submenu-wrapper-3">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="cases.xhtml">CASES DE SUCESSO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes.xhtml">CLIENTES DO GRUPO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes-atendidos.xhtml">CLIENTES ATENDIDOS</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="sombra-wrapper-submenu">
+      <div class="sombra-esquerda-submenu"></div>
+      <div class="sombra-direita-submenu"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="widget-header" style="margin-top: 0;">
+    <div class="widget-clipping">
+      <div class="widget-content">
+        <div class="widget-icon"><img src="#{facesContext.externalContext.requestContextPath}/images/widget-clipping.png" border="0"/></div>
+        <div class="widget-item">CLIPPING</div>
+        <div class="widget-arrow"><img src="#{facesContext.externalContext.requestContextPath}/images/arrow.png" border="0"/></div>
+      </div>
+      <!--ÁREA DA BUSCA AVANÇADA - FILTROS - IMPORTANTE-->
+      <h:form styleClass="busca-avancada" prependId="false" id="formPesquisa">
+      	
+      	<p:growl showDetail="true" sticky="false" life="3000" showSummary="false"/>
+      	
+      	<p:outputPanel id="otpPesquisa">
+			
+  		<div class="field-container">
+          <div class="field-wrapper">
+            <div class="radio-btn"></div>
+            <h:inputText value="#{clippingFaces.dataInicial}" id="dataPublicacaoInicial" styleClass="data-publicacao"/>
+          </div>
+          <div class="clear"></div>
+          <div class="field-wrapper">
+            <div class="radio-btn"></div>
+            <h:inputText value="#{clippingFaces.dataFinal}" id="dataPublicacaoFinal" styleClass="data-publicacao"/>
+          </div>
+        </div>
+        <div class="field-container">
+          <div class="field-wrapper">
+            <div class="radio-btn"></div>
+            <h:inputText value="#{clippingFaces.midiaEnvio.midia.chamada}" id="chamada" styleClass="chamada"/>
+          </div>
+          <div class="clear"></div>
+          <div class="field-wrapper">
+            <div class="radio-btn"></div>
+            <h:inputText value="#{clippingFaces.midiaEnvio.midia.titulo}" id="titulo" styleClass="chamada"/>
+          </div>
+        </div>
+        <div class="field-container">
+          <div class="field-wrapper">
+            <div class="radio-btn"></div>
+            <h:selectOneMenu value="#{clippingFaces.midiaEnvio.midia.tipoMidia.id}" styleClass="veiculo">
+	      		<f:selectItem itemLabel="VEÍCULO"/>
+	      		<f:selectItem itemLabel="IMPRESSO" itemValue="3"/>
+	      		<f:selectItem itemLabel="RÁDIO" itemValue="1"/>
+	      		<f:selectItem itemLabel="TV" itemValue="2"/>
+	      		<f:selectItem itemLabel="WEB" itemValue="4"/>
+	      	</h:selectOneMenu>
+          </div>
+          <div class="clear"></div>
+          <div class="field-wrapper">
+            <div class="radio-btn"></div>
+            <h:selectOneMenu value="#{clippingFaces.midiaEnvio.midia.avaliacao.id}" styleClass="veiculo">
+	      		<f:selectItem itemLabel="AVALIAÇÃO"/>
+	      		<f:selectItem itemLabel="NEUTRA" itemValue="1"/>
+	      		<f:selectItem itemLabel="POSITIVA" itemValue="2"/>
+	      		<f:selectItem itemLabel="NEGATIVA" itemValue="3"/>
+	      		<f:selectItem itemLabel="CONCORRÊNCIA" itemValue="4"/>
+	      		<f:selectItem itemLabel="CONHECIMENTO" itemValue="5"/>
+	      	</h:selectOneMenu>
+          </div>
+        </div>
+        
+        <script type="text/javascript">
+	         $('#dataPublicacaoInicial').attr('placeholder','DATA INICIAL');
+	    </script>
+	    <script type="text/javascript">
+	         $('#dataPublicacaoFinal').attr('placeholder','DATA FINAL');
+	    </script>
+	    <script type="text/javascript">
+	         $('#chamada').attr('placeholder','CHAMADA');
+	    </script>
+	    <script type="text/javascript">
+	         $('#titulo').attr('placeholder','TÍTULO');
+	    </script>
+	    
+	    <h:commandButton action="#{clippingFaces.findEvent}" value="pesquisar" styleClass="botao-pesquisar"/>
+	    
+        </p:outputPanel>
+          
+      </h:form>
+      <div class="bem-vindo-wrapper">
+        <div class="bem-vindo">Olá,</div>
+        <div class="nome-usuario">${sessionScope.usuarioConectado.nome}</div>
+        <div class="icone-bem-vindo"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sombra-wrapper">
+    <div class="sombra-esquerda"></div>
+    <div class="sombra-direita"></div>
+  </div>
+  <!--FIM DO INCLUDE NA ÁREA DE CLIPPING COM USUÁRIO AUTENTICADO-->
+  <div class="content-clipping-wrapper"> 
+    <!--ÁREA DA BUSCA AVANÇADA POR VEÍCULO - FILTROS - IMPORTANTE-->
+    <div class="left-box">
+      <div class="box-arrow"></div>
+      <div class="box-menu">
+        <div class="item-menu-box-selected"><a href="logado.xhtml">TODAS</a></div>
+        <div class="menu-box-bar"></div>
+        <div class="item-menu-box"><a href="impresso.xhtml">IMPRESSO</a></div>
+        <div class="menu-box-bar"></div>
+        <div class="item-menu-box"><a href="radio.xhtml">RADIO</a></div>
+        <div class="menu-box-bar"></div>
+        <div class="item-menu-box"><a href="tv.xhtml">TV</a></div>
+        <div class="menu-box-bar"></div>
+        <div class="item-menu-box"><a href="web.xhtml">WEB</a></div>
+      </div>
+    </div>
+    <div class="clipping-listagem-wrapper">
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/positivo.png" border="0" title="positivo"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <div class="imagem-clipping"><a href="impresso_ampliado_todas.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/images/imagem-clipping.jpg" border="0"/></a></div>
+        <div class="tarja-img">Clique na imagem para ampliar</div>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/neutro.png" border="0" title="neutro"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <audio>
+          <source src="midia-radio.ogg" type="audio/ogg"/>
+          <source src="#{facesContext.externalContext.requestContextPath}/audio/audio.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </source> 
+        </audio>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/negativo.png" border="0" title="negativo"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <video width="280" height="210">
+          <source src="#{facesContext.externalContext.requestContextPath}/video/video.mp4" type="video/mp4"/>
+          <source src="#{facesContext.externalContext.requestContextPath}/video/video.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+          </source> 
+        </video>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/concorrencia.png" border="0" title="concorrência"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <div class="web-content">
+          <p>O Movimento Passe Livre Salvador está prometendo para este domingo (27/10), na Estação da Lapa, uma aula pública sobre tarifa zero, passe livre, sistema de transporte público e assuntos relacionados à mobilidade urbana.</p>
+          <p>Ao fim da aula, os manifestantes prometem fazer com que os passageiros entrem nos transportes urbanos sem pagar a passagem.</p>
+          <p>Segundo os militantes, todos entrarão pela frente, "sem pagar os caros R$ 2,80 que são cobrados nos ônibus de Salvador".</p>
+          <p>Eles prometem ficar na frente dos ônibus até que o motorista abra a porta dianteira do coletivo.
+            O ato de manifestação está marcado para as 15h.</p>
+          <div class="line-web"></div>
+          <div class="botao-ver-fonte"><a href="http://www.tribunadabahia.com.br/2013/10/27/movimento-passe-livre-promete-parar-coletivos-para-exigir-transporte-gratuito" target="_blank">Ver conteúdo na fonte</a></div>
+          <div class="botao-web" style="margin-right: 10px;"><a href="salvar_pdf.xhtml">Salvar PDF</a></div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/positivo.png" border="0" title="positivo"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <div class="tarja-img">Clique na imagem para ampliar</div>
+        <div class="imagem-clipping"><a href="impresso_ampliado_todas.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/images/imagem-clipping.jpg" border="0"/></a></div>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/neutro.png" border="0" title="neutro"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <audio>
+          <source src="midia-radio.ogg" type="audio/ogg"/>
+          <source src="#{facesContext.externalContext.requestContextPath}/audio/audio.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </source>
+        </audio>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/negativo.png" border="0" title="negativo"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <video width="280" height="210">
+          <source src="#{facesContext.externalContext.requestContextPath}/video/video.mp4" type="video/mp4"/>
+          <source src="#{facesContext.externalContext.requestContextPath}/video/video.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+          </source>
+        </video>
+      </div>
+      <div class="line"></div>
+      <div class="clipping-chamada-wrapper">
+        <div class="texto-wrapper">
+          <div class="clipping-chamada">Título do link das matéria, chamada do rádio, jornal ou web juntas do link das matéria, chamada do rádio, jornal ou web juntas</div>
+          <div class="clipping-descricao">Publicado em: 18/09/2013, Jornal Correio da Bahia, Satélite, Pag. 04</div>
+        </div>
+        <div class="icone-aval"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/images/conhecimento.png" border="0" title="conhecimento"/></a></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clipping-content">
+        <div class="web-content">
+          <p>O Movimento Passe Livre Salvador está prometendo para este domingo (27/10), na Estação da Lapa, uma aula pública sobre tarifa zero, passe livre, sistema de transporte público e assuntos relacionados à mobilidade urbana.</p>
+          <p>Ao fim da aula, os manifestantes prometem fazer com que os passageiros entrem nos transportes urbanos sem pagar a passagem.</p>
+          <p>Segundo os militantes, todos entrarão pela frente, "sem pagar os caros R$ 2,80 que são cobrados nos ônibus de Salvador".</p>
+          <p>Eles prometem ficar na frente dos ônibus até que o motorista abra a porta dianteira do coletivo.
+            O ato de manifestação está marcado para as 15h.</p>
+          <div class="line-web"></div>
+          <div class="botao-ver-fonte"><a href="http://www.tribunadabahia.com.br/2013/10/27/movimento-passe-livre-promete-parar-coletivos-para-exigir-transporte-gratuito" target="_blank">Ver conteúdo na fonte</a></div>
+          <div class="botao-web" style="margin-right: 10px;"><a href="salvar_pdf.html">Salvar PDF</a></div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <!--INCLUDE RODAPÉ-->
+  <div class="sombra-base"></div>
+  <footer class="footer">
+    <div class="endereco">Av. Tancredo Neves, 909, Ed. André Guimarães Business Center, Salas 1104 e 1105, CEP 41820-021, Salvador, Bahia, (71) 3444-6800, www.varjao.com</div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/main.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="#{facesContext.externalContext.requestContextPath}/css/media.css"/>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="scripts/submenu-home-visivel.js"></script>
+<script src="scripts/submenu-home-habilita-quem-somos.js"></script>
+<script src="scripts/submenu-home-habilita-atuacao.js"></script>
+<script src="scripts/submenu-home-habilita-clientes.js"></script>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+<title>Home - Varjão</title>
+</head>
+
+<body>
+<div class="site-wrapper"> 
+  <!--INÍCIO DO INCLUDE NA HOME-->
+  <div class="barra-topo"></div>
+  <div class="sombra-topo-wrapper">
+    <div class="sombra-topo-esquerda"></div>
+    <div class="sombra-topo-direita"></div>
+  </div>
+  <div class="header">
+    <div class="logo"><a href="index.xhtml"><img src="images/logo.png" border="0"/></a></div>
+    <menu>
+    <div class="menu-wrapper">
+      <div class="item-menu-home"><a href="index.xhtml">HOME</a></div>
+      <div class="item-menu-quem-somos"><a href="#">QUEM SOMOS</a></div>
+      <div class="item-menu-atuacao"><a href="#">ATUAÇÃO</a></div>
+      <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
+      <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
+      <div class="item-menu"><a href="contato.xhtml">CONTATO</a></div>
+      <h:panelGroup rendered="#{empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu"><a href="login.xhtml">LOGIN</a></div>
+      </h:panelGroup>
+      <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu">
+      <h:form id="formLogout">
+      	<h:commandLink value="SAIR" action="#{loginFaces.sair}"/>
+      </h:form>
+      </div>
+      </h:panelGroup>
+    </div>
+    
+    <div class="clear"></div>
+    </menu>
+    <div class="clear"></div>
+    <div class="submenu-home"></div>
+    <div class="submenu-quem-somos">
+      <div class="submenu-wrapper-1">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="historia.xhtml">HISTÓRIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="diretoria.xhtml">DIRETORIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-atuacao">
+      <div class="submenu-wrapper-2">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="comunicacao.xhtml">COMUNICAÇÃO INTEGRADA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clipping.xhtml">CLIPPING E MONITORAMENTO</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-clientes">
+      <div class="submenu-wrapper-3">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="cases.xhtml">CASES DE SUCESSO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes.xhtml">CLIENTES DO GRUPO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes-atendidos.xhtml">CLIENTES ATENDIDOS</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="sombra-wrapper-submenu">
+      <div class="sombra-esquerda-submenu"></div>
+      <div class="sombra-direita-submenu"></div>
+    </div>
+    <!--FIM DO INCLUDE--> 
+  </div>
+  <div class="clear"></div>
+  <div id="content">
+    <div class="widget-header">
+      <div id="widget-home-wrapper">
+        <div class="widget-content-home-right">
+          <div class="widget-content-wrapper-clipping">
+            <div class="widget-icon"><a href="clipping.xhtml"><img src="images/widget-clipping.png" border="0"/></a></div>
+            <div class="widget-item"><a href="clipping.xhtml">CLIPPING</a></div>
+            <div class="widget-arrow"><a href="clipping.xhtml"><img src="images/arrow.png" border="0"/></a></div>
+          </div>
+        </div>
+        <div class="widget-content-home-left">
+          <div class="widget-content-wrapper-comunicacao">
+            <div class="widget-icon"><a href="comunicacao.xhtml"><img src="images/widget-comunicacao.png" border="0"/></a></div>
+            <div class="widget-item"><a href="comunicacao.xhtml">COMUNICAÇÃO</a></div>
+            <div class="widget-arrow"><a href="comunicacao.xhtml"><img src="images/arrow2.png" border="0"/></a></div>
+          </div>
+        </div>
+        <div id="widget-bar"></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="sombra-wrapper">
+      <div class="sombra-esquerda"></div>
+      <div class="sombra-direita"></div>
+    </div>
+    <div class="content-home">
+      <div class="content-home-right">
+        <div class="widget-content-wrapper-fotos">
+          <div class="foto-capa"><a href="clipping.xhtml"><img src="images/foto-capa-1.png" border="0"/></a></div>
+          <div class="texto-capa"><a href="clipping.xhtml">A <strong>Varjão Clipping</strong> foi formalmente criada no ano de 2010, mas já desenvolvia a atividade de pesquisa, monitoramento e clipping desde o ano de 2004. A empresa presta serviços diferenciais de informação estratégica e possui uma carteira própria de clientes. Com gestão administrativa independente, a empresa também está devidamente estruturada em quatro salas dotadas de tecnologia avançada para o serviço de clipagem.</a></div>
+        </div>
+      </div>
+      <div class="content-home-left">
+        <div class="widget-content-wrapper-fotos">
+          <div class="foto-capa"><a href="comunicacao.xhtml"><img src="images/foto-capa-2.png" border="0"/></a></div>
+          <div class="texto-capa"> <a href="comunicacao.xhtml">A <strong>Varjão Comunicação</strong> sempre foi o carro-chefe do Grupo, atuando inicialmente com os serviços de assessoria de imprensa. Ao longo da sua história, a empresa agregou novas sub-áreas, adotando a ﬁlosoﬁa de comunicação integrada. Atualmente possui um portfólio extenso de serviços diferenciados em comunicação. A equipe é composta por proﬁssionais com diversas formações: publicitários, jornalistas, relações públicas, revisores, fotógrafos, assistentes de produção e comercial.</a></div>
+        </div>
+      </div>
+      <div id="home-bar"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <!--INCLUDE RODAPÉ-->
+  <div class="sombra-base"></div>
+  <footer class="footer">
+    <div class="endereco">Av. Tancredo Neves, 909, Ed. André Guimarães Business Center, Salas 1104 e 1105, CEP 41820-021, Salvador, Bahia, (71) 3444-6800, www.varjao.com</div>
+  </footer>
+</div>
+</body>
+</html>

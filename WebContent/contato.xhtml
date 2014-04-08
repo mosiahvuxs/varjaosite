@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/main.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="#{facesContext.externalContext.requestContextPath}/css/media.css"/>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<title>Varjão - Contato</title>
+</h:head>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-contato-habilita-quem-somos.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-contato-habilita-atuacao.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-contato-habilita-clientes.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-contato-visivel.js"></script>
+<h:body>
+<div class="site-wrapper"> 
+  <!--INÍCIO DO INCLUDE-->
+  <div class="barra-topo"></div>
+  <div class="sombra-topo-wrapper">
+    <div class="sombra-topo-esquerda"></div>
+    <div class="sombra-topo-direita"></div>
+  </div>
+  <div class="header">
+    <div class="logo"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/images/logo.png" border="0"/></a></div>
+    <menu>
+    <div class="menu-wrapper">
+      <div class="item-menu"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml">HOME</a></div>
+      <div class="item-menu-quem-somos"><a href="#">QUEM SOMOS</a></div>
+      <div class="item-menu-atuacao"><a href="#">ATUAÇÃO</a></div>
+      <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
+      <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
+      <div class="item-menu-contato"><a href="contato.xhtml">CONTATO</a></div>
+      <div class="item-menu"><a href="login.xhtml">LOGIN</a></div>
+    </div>
+    </menu>
+    <div class="clear"></div>
+    <div class="submenu-contato"></div>
+    <div class="submenu-quem-somos">
+      <div class="submenu-wrapper-1">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="historia.xhtml">HISTÓRIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="diretoria.xhtml">DIRETORIA</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-atuacao">
+      <div class="submenu-wrapper-2">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="comunicacao.xhtml">COMUNICAÇÃO INTEGRADA</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clipping.xhtml">CLIPPING E MONITORAMENTO</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="submenu-clientes">
+      <div class="submenu-wrapper-3">
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="cases.xhtml">CASES DE SUCESSO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes.xhtml">CLIENTES DO GRUPO</a></div>
+        <div class="barra-divisoria-azul"></div>
+        <div class="item-submenu"><a href="clientes-atendidos.xhtml">CLIENTES ATENDIDOS</a></div>
+        <div class="barra-divisoria-azul"></div>
+      </div>
+    </div>
+    <div class="sombra-wrapper-submenu">
+      <div class="sombra-esquerda-submenu"></div>
+      <div class="sombra-direita-submenu"></div>
+    </div>
+    <!--FIM DO INCLUDE--> 
+  </div>
+  <div class="clear"></div>
+  <div class="content-contato">
+    <div class="contato-wrapper">
+      <div class="container-texto-marca">
+        <div class="texto-contato">
+          <p style="margin-top: 0;">Entre em contato conosco através do formulário abaixo, pelo telefone 3444-6800 ou pelos nossos canais de comunicação na rede:</p>
+          <p style="margin-top: 20px;">E-mail: atende@varjao.com</p>
+          <br />
+          Twitter: @varjao_com <br />
+          Facebook: varjaocomunicacao <br />
+          <p style="margin-top: 20px;">Os campos marcados com (*) são de preenchimento obrigatório.</p>
+        </div>
+        <div class="container-marcas"> <img src="#{facesContext.externalContext.requestContextPath}/images/logo_abemo.gif"/> <img src="#{facesContext.externalContext.requestContextPath}/images/selo_associada.jpg" style="margin-top: 20px;"/> </div>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+      <h:form id="contato" prependId="false">
+        <p:growl showDetail="true" sticky="false" life="3000" showSummary="false" autoUpdate="true"/>
+        
+        <h:inputText value="#{contatoFaces.nome}" id="nome" styleClass="contato-field"/>
+        <h:inputText value="#{contatoFaces.assunto}" id="assunto" styleClass="contato-field"/>
+        <h:inputText value="#{contatoFaces.email}" id="email" styleClass="contato-field"/>
+        <h:inputText value="#{contatoFaces.telefone}" id="telefone" onblur="Mascara(this,Integer)" onkeypress="Mascara(this,Integer)" maxlength="15" styleClass="contato-field"/>
+        <h:inputTextarea value="#{contatoFaces.mensagem}" id="mensagem"/>
+        <div class="clear"></div>
+        <div class="bot-wrap">
+        	<h:commandButton styleClass="enviar" action="#{contatoFaces.enviar}">
+	        	<f:ajax execute="@form"/>
+	      	</h:commandButton>
+        </div>
+        <script type="text/javascript">
+         $('#nome').attr('placeholder','NOME');
+         $('#assunto').attr('placeholder','ASSUNTO');
+         $('#email').attr('placeholder','E-MAIL');
+         $('#telefone').attr('placeholder','TELEFONE');
+         $('#mensagem').attr('placeholder','MENSAGEM');
+        </script>
+      </h:form>
+    </div>
+    <div class="content-contato-right">
+      <div class="mapa">
+        <iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=216226381445684503351.0004ea74023daf10e31bf&amp;ie=UTF8&amp;ll=-12.978872,-38.458044&amp;spn=0,0&amp;t=m&amp;output=embed"></iframe>
+        <br />
+        <small><a href="https://maps.google.com/maps/ms?msa=0&amp;msid=216226381445684503351.0004ea74023daf10e31bf&amp;ie=UTF8&amp;ll=-12.978872,-38.458044&amp;spn=0,0&amp;t=m&amp;source=embed" style="font-family: 'Bree Light'; color:#666; text-align:left; text-decoration: none;" target="_blank">Visualizar em um mapa maior</a></small> </div>
+      <div class="redes-sociais"> <a href="https://twitter.com/varjao_com" target="_blank"><img src="#{facesContext.externalContext.requestContextPath}/images/twitter.png" border="0"/> </a> <a href="https://www.facebook.com/varjaocomunicacao" target="_blank"><img src="#{facesContext.externalContext.requestContextPath}/images/facebook.png" border="0"/></a> <a href="http://www.youtube.com/user/VarjaoeAssociados" target="_blank"><img src="#{facesContext.externalContext.requestContextPath}/images/youtube.png"/></a> <a href="#" target="_blank"><img src="#{facesContext.externalContext.requestContextPath}/images/google.png"/></a> <a href="#" target="_blank"><img src="#{facesContext.externalContext.requestContextPath}/images/red-soc-1.png"/></a> <a href="#" target="_blank"><img src="#{facesContext.externalContext.requestContextPath}/images/red-soc-2.png"/></a> </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <!--INCLUDE RODAPÉ-->
+  <div class="sombra-base"></div>
+  <footer class="footer">
+    <div class="endereco">Av. Tancredo Neves, 909, Ed. André Guimarães Business Center, Salas 1105 e 1113, CEP 41820-021, Salvador, Bahia, (71) 3444-6800, www.varjao.com</div>
+  </footer>
+</div>
+</h:body>
+</html>
