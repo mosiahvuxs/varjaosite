@@ -40,7 +40,7 @@ public class ClippingFaces extends TSMainFaces {
 	private StreamedContent file;
 	private String dataInicial;
 	private String dataFinal;
-
+	
 	public ClippingFaces() {
 
 		this.initObjetos();
@@ -57,7 +57,7 @@ public class ClippingFaces extends TSMainFaces {
 		this.setMidia(new Midia());
 		this.dataInicial = TSParseUtil.dateToString(TSDateUtil.addDayDate(new Date(), -30), TSDateUtil.DD_MM_YYYY);
 		this.dataFinal = TSParseUtil.dateToString(new Date(), TSDateUtil.DD_MM_YYYY);
-
+		
 	}
 
 	public String setarAvaliacao() {
@@ -138,7 +138,7 @@ public class ClippingFaces extends TSMainFaces {
 
 		if (validado) {
 
-			if (TSDateUtil.diferencaDias(this.dataInicial, this.dataFinal, TSDateUtil.DD_MM_YYYY) > 30l) {
+			/*if (TSDateUtil.diferencaDias(this.dataInicial, this.dataFinal, TSDateUtil.DD_MM_YYYY) > 30l) {
 
 				validado = false;
 
@@ -150,7 +150,11 @@ public class ClippingFaces extends TSMainFaces {
 
 				this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
 
-			}
+			}*/
+			
+			this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(), TSDateUtil.DD_MM_YYYY));
+
+			this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
 
 		}
 
@@ -197,7 +201,7 @@ public class ClippingFaces extends TSMainFaces {
 
 		this.tratarArquivo();
 
-		return null;
+		return Constantes.PAGINA_CLIPPING_IMPRESSO_AMPLIADO;
 	}
 
 	private void tratarArquivo() {
@@ -289,5 +293,4 @@ public class ClippingFaces extends TSMainFaces {
 	public void setDataInicial(String dataInicial) {
 		this.dataInicial = dataInicial;
 	}
-
 }

@@ -41,4 +41,6 @@ public final class Constantes {
 
 	public static final String EMAIL_CONTATO = "atende@varjao.com";
 
+	public static final String PAGINA_CLIPPING_IMPRESSO_AMPLIADO = "clipping_impresso_ampliado";
+
 }

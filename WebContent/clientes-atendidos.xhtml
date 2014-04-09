@@ -36,7 +36,16 @@
       <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
       <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
       <div class="item-menu"><a href="contato.xhtml">CONTATO</a></div>
+      <h:panelGroup rendered="#{empty sessionScope.usuarioConectado.id}">
       <div class="item-menu"><a href="login.xhtml">LOGIN</a></div>
+      </h:panelGroup>
+      <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
+      <div class="item-menu">
+      <h:form id="formLogout">
+      	<h:commandLink value="SAIR" action="#{loginFaces.sair}"/>
+      </h:form>
+      </div>
+      </h:panelGroup>
     </div>
     
     <div class="clear"></div>
