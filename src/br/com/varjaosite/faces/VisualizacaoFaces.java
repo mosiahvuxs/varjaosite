@@ -218,6 +218,13 @@ public class VisualizacaoFaces extends TSMainFaces {
 		return null;
 
 	}
+	
+	public String salvarHtmlEmPdf() {
+
+		Utilitarios.htmlToPdf(this.getMidia().getWeb().getConteudo(), this.getMidia().getTitulo() + "_" + TSUtil.gerarId());
+
+		return null;
+	}
 
 	public Midia getMidia() {
 		return midia;

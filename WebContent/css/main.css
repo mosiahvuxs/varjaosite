@@ -468,6 +468,15 @@ input.botao-busca{
 	margin: auto;
 }
 
+.textRodape{
+	font-family: 'Sans Serif';
+	font-size: 12px;
+	text-align: center;
+	padding-top: 15px;
+	margin: auto;
+	font-weight: normal;
+}
+
 .sombra-base{
 	width: 302px;
 	height: 11px;

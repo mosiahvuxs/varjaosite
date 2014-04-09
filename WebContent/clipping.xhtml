@@ -317,7 +317,11 @@ jQuery(function($){
 		          <h:panelGroup rendered="#{!empty item.web.url}">
 		          	<div class="botao-ver-fonte"><a href="#{item.web.url}" target="_blank">Ver conteúdo na fonte</a></div>
 		          </h:panelGroup>
-		          <div class="botao-web" style="margin-right: 10px;"><a href="salvar_pdf.xhtml">Salvar PDF</a></div>
+		          <div class="botao-web" style="margin-right: 10px;">
+		          	<h:commandLink value="Salvar PDF" action="#{clippingFaces.salvarHtmlEmPdf}">
+		          		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}"/>
+		          	</h:commandLink>	
+		          </div>
 		          <div class="clear"></div>
 		        </div>
 		  	</h:panelGroup>

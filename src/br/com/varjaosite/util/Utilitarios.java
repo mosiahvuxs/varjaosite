@@ -1,17 +1,32 @@
 package br.com.varjaosite.util;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletResponse;
+
+import org.w3c.dom.Document;
+import org.w3c.tidy.Tidy;
+import org.xhtmlrenderer.pdf.ITextRenderer;
+
+import com.lowagie.text.DocumentException;
+
 import br.com.topsys.util.TSCryptoUtil;
 import br.com.topsys.util.TSDateUtil;
 import br.com.topsys.util.TSUtil;
+import br.com.topsys.web.util.TSFacesUtil;
 
 public final class Utilitarios {
 
@@ -122,5 +137,92 @@ public final class Utilitarios {
 		}
 
 		return true;
+	}
+	
+	public static String lerArquivo(String nomeArquivo) {
+
+		try {
+
+			return new String(getBytes(new File(TSFacesUtil.getServletContext().getRealPath("/") + nomeArquivo)), "UTF-8");
+
+		} catch (UnsupportedEncodingException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
+
+	}
+	
+	public static String htmlToPdf(String texto, String nomeArquivo) {
+
+		String html = Utilitarios.lerArquivo("pdf.html");
+
+		html = html.replace("[texto]", texto);
+
+		Tidy tidy = new Tidy();
+
+		OutputStream os;
+
+		try {
+
+			os = new FileOutputStream(Constantes.PASTA_ARQUIVOS_UPLOAD + nomeArquivo + ".pdf");
+
+			Document doc = tidy.parseDOM(new ByteArrayInputStream(html.getBytes()), os);
+			ITextRenderer renderer = new ITextRenderer();
+			renderer.setDocument(doc, null);
+			renderer.layout();
+			renderer.createPDF(os);
+			
+			os.close();
+			
+			downloadFile(nomeArquivo, Constantes.PASTA_ARQUIVOS_UPLOAD, Constantes.MIME_TYPE_PDF, FacesContext.getCurrentInstance());
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+			
+		} catch (DocumentException e) {
+
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	public static void downloadFile(String filename, String fileLocation, String contentType, FacesContext facesContext) {
+
+		ExternalContext context = facesContext.getExternalContext();
+		String path = fileLocation;
+		String fullFileName = path + filename;
+		File file = new File(fullFileName);
+
+		HttpServletResponse response = (HttpServletResponse) context.getResponse();
+		response.setHeader("Content-Disposition", "attachment;filename=\"" + filename + "\"");
+		response.setContentLength((int) file.length());
+		response.setContentType(contentType);
+
+		try {
+			
+			FileInputStream in = new FileInputStream(Constantes.PASTA_ARQUIVOS_UPLOAD + file.getName());
+			
+			OutputStream out = response.getOutputStream();
+
+			byte[] buf = new byte[(int) file.length()];
+			int count;
+			while ((count = in.read(buf)) >= 0) {
+				out.write(buf, 0, count);
+			}
+			in.close();
+			out.flush();
+			out.close();
+			facesContext.responseComplete();
+		} catch (IOException ex) {
+			TSFacesUtil.addErrorMessage("Erro ao baixar arquivo");
+		}
 	}
 }
