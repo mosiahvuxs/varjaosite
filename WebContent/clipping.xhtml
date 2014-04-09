@@ -282,29 +282,22 @@ jQuery(function($){
 			
 		<div class="clipping-content">
 			<h:panelGroup rendered="#{item.tipoMidia.id==1}">
-			 	<p:media value="#{item.arquivoFormatado}" player="windows" rendered="#{item.arquivoEmDisco}">
+			 	<p:media value="#{item.arquivoFormatado}" player="windows">
 		      		<f:param name="autostart" value="false" />
 		      	</p:media>
 		  	</h:panelGroup>
 		  	<h:panelGroup rendered="#{item.tipoMidia.id==2}">
-			 	<p:media value="#{item.arquivoFormatado}" width="280" height="210" player="windows" rendered="#{item.arquivoEmDisco}">
+			 	<p:media value="#{item.arquivoFormatado}" width="280" height="210" player="windows">
 		      		<f:param name="autostart" value="false" />
 		      	</p:media>
 		  	</h:panelGroup>
 			<h:panelGroup rendered="#{item.tipoMidia.id==3}">
 			 	<div class="imagem-clipping">
-			 	<h:commandLink action="#{clippingFaces.actionListener}" rendered="true">
-			 		<h:graphicImage width="800" height="600" value="images/imagem-clipping.jpg" rendered="true"/>
-			 		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}" />
-			 		<f:ajax/>
-			 	</h:commandLink>
-			 	<h:panelGroup rendered="false">
-			 	<h:commandLink action="#{clippingFaces.actionListener}" rendered="#{item.arquivoEmDisco}">
+			 	<h:commandLink action="#{clippingFaces.actionListener}">
 			 		<h:graphicImage width="800" height="600" value="#{item.arquivoFormatado}"/>
 			 		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}" />
 			 		<f:ajax/>
 			 	</h:commandLink>
-			 	</h:panelGroup>
 			 	</div>
 			 	<h:panelGroup rendered="#{item.arquivoEmDisco}">
 			  		<div class="tarja-img">Clique na imagem para ampliar</div>

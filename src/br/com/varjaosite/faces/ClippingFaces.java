@@ -138,30 +138,23 @@ public class ClippingFaces extends TSMainFaces {
 
 		if (validado) {
 
-			/*
-			 * if (TSDateUtil.diferencaDias(this.dataInicial, this.dataFinal,
-			 * TSDateUtil.DD_MM_YYYY) > 30l) {
-			 * 
-			 * validado = false;
-			 * 
-			 * super.addErrorMessage(
-			 * "Para realizar a operação as datas devem abranger o período de 30 dias."
-			 * );
-			 * 
-			 * } else {
-			 * 
-			 * this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.
-			 * getDataInicial(), TSDateUtil.DD_MM_YYYY));
-			 * 
-			 * this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this
-			 * .getDataFinal(), TSDateUtil.DD_MM_YYYY));
-			 * 
-			 * }
-			 */
+			if (TSDateUtil.diferencaDias(this.dataInicial, this.dataFinal, TSDateUtil.DD_MM_YYYY) > 30l) {
 
-			this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(), TSDateUtil.DD_MM_YYYY));
+				validado = false;
 
-			this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
+				super.addErrorMessage("Para realizar a operação as datas devem abranger o período de 30 dias.");
+
+			} else {
+
+				this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(), TSDateUtil.DD_MM_YYYY));
+
+				this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
+
+			}
+
+			//this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(), TSDateUtil.DD_MM_YYYY));
+
+			//this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
 
 		}
 
