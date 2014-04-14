@@ -2,6 +2,7 @@ package br.com.varjaosite.model;
 
 import java.io.File;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -64,6 +65,8 @@ public class Midia implements Serializable {
 	private boolean arquivoEmDisco;
 
 	private String arquivoFormatado;
+	
+	private Timestamp dataCadastro;
 
 	public Midia() {
 		// TODO Auto-generated constructor stub
@@ -369,5 +372,13 @@ public class Midia implements Serializable {
 		}
 
 		return null;
+	}
+
+	public Timestamp getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Timestamp dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 }

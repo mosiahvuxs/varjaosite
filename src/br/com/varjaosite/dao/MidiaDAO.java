@@ -204,7 +204,7 @@ public class MidiaDAO {
 
 		StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT M.ID, AU.ARQUIVO AUDIO, VI.ARQUIVO VIDEO, IMP.ARQUIVO IMPRESSO, W.ARQUIVO ONLINE, M.TITULO, M.CHAMADA, A.ID AVALIACAO_ID, A.DESCRICAO, M.TIPO_MIDIA_ID, TM.DESCRICAO, M.DATA, IMP.CONTEUDO, W.CONTEUDO, W.URL, S.DESCRICAO, V.DESCRICAO FROM MIDIA_ENVIOS ME INNER JOIN MIDIAS M ON ME.MIDIA_ID = M.ID INNER JOIN AVALIACOES A ON A.ID = M.AVALIACAO_ID INNER JOIN TIPO_MIDIAS TM ON TM.ID = M.TIPO_MIDIA_ID LEFT OUTER JOIN AUDIOS AU ON AU.MIDIA_ID = M.ID LEFT OUTER JOIN VIDEOS VI ON VI.MIDIA_ID = M.ID LEFT OUTER JOIN IMPRESSOS IMP ON IMP.MIDIA_ID = M.ID LEFT OUTER JOIN WEB W ON W.MIDIA_ID = M.ID LEFT OUTER JOIN SECOES S ON M.SECAO_ID = S.ID LEFT OUTER JOIN VEICULOS V ON V.ID = S.VEICULO_ID WHERE 1 = 1");
+		sql.append("SELECT M.DATA_CADASTRO, M.ID, AU.ARQUIVO AUDIO, VI.ARQUIVO VIDEO, IMP.ARQUIVO IMPRESSO, W.ARQUIVO ONLINE, M.TITULO, M.CHAMADA, A.ID AVALIACAO_ID, A.DESCRICAO, M.TIPO_MIDIA_ID, TM.DESCRICAO, M.DATA, IMP.CONTEUDO, W.CONTEUDO, W.URL, S.DESCRICAO, V.DESCRICAO FROM MIDIA_ENVIOS ME INNER JOIN MIDIAS M ON ME.MIDIA_ID = M.ID INNER JOIN AVALIACOES A ON A.ID = M.AVALIACAO_ID INNER JOIN TIPO_MIDIAS TM ON TM.ID = M.TIPO_MIDIA_ID LEFT OUTER JOIN AUDIOS AU ON AU.MIDIA_ID = M.ID LEFT OUTER JOIN VIDEOS VI ON VI.MIDIA_ID = M.ID LEFT OUTER JOIN IMPRESSOS IMP ON IMP.MIDIA_ID = M.ID LEFT OUTER JOIN WEB W ON W.MIDIA_ID = M.ID LEFT OUTER JOIN SECOES S ON M.SECAO_ID = S.ID LEFT OUTER JOIN VEICULOS V ON V.ID = S.VEICULO_ID WHERE 1 = 1");
 
 		if (!TSUtil.isEmpty(model.getMidia().getAvaliacao()) && !TSUtil.isEmpty(TSUtil.tratarLong(model.getMidia().getAvaliacao().getId()))) {
 
@@ -260,7 +260,7 @@ public class MidiaDAO {
 
 		broker.set(model.getCliente().getId());
 
-		return broker.getCollectionBean(Midia.class, "id", "audio.arquivo", "video.arquivo", "impresso.arquivo", "web.arquivo", "titulo", "chamada", "avaliacao.id", "avaliacao.descricao", "tipoMidia.id", "tipoMidia.descricao", "data", "impresso.conteudo", "web.conteudo", "web.url", "secao.descricao", "secao.veiculo.descricao");
+		return broker.getCollectionBean(Midia.class, "dataCadastro", "id", "audio.arquivo", "video.arquivo", "impresso.arquivo", "web.arquivo", "titulo", "chamada", "avaliacao.id", "avaliacao.descricao", "tipoMidia.id", "tipoMidia.descricao", "data", "impresso.conteudo", "web.conteudo", "web.url", "secao.descricao", "secao.veiculo.descricao");
 	}
 
 	public Midia obter(Midia model) {
@@ -269,7 +269,7 @@ public class MidiaDAO {
 
 		broker.setPropertySQL("midiadao.obter", model.getId());
 
-		return (Midia) broker.getObjectBean(Midia.class, "id", "audio.arquivo", "video.arquivo", "impresso.arquivo", "web.arquivo", "titulo", "chamada", "avaliacao.id", "avaliacao.descricao", "tipoMidia.id", "tipoMidia.descricao", "data", "impresso.conteudo", "web.conteudo", "web.url", "secao.descricao", "secao.veiculo.descricao");
+		return (Midia) broker.getObjectBean(Midia.class, "dataCadastro", "id", "audio.arquivo", "video.arquivo", "impresso.arquivo", "web.arquivo", "titulo", "chamada", "avaliacao.id", "avaliacao.descricao", "tipoMidia.id", "tipoMidia.descricao", "data", "impresso.conteudo", "web.conteudo", "web.url", "secao.descricao", "secao.veiculo.descricao");
 	}
 
 	public void excluir(Midia model) throws TSApplicationException {

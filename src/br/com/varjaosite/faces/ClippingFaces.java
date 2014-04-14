@@ -6,12 +6,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.jasperreports.engine.JRException;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -152,9 +155,11 @@ public class ClippingFaces extends TSMainFaces {
 
 			}
 
-			//this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(), TSDateUtil.DD_MM_YYYY));
+			// this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(),
+			// TSDateUtil.DD_MM_YYYY));
 
-			//this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
+			// this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(),
+			// TSDateUtil.DD_MM_YYYY));
 
 		}
 
@@ -195,9 +200,25 @@ public class ClippingFaces extends TSMainFaces {
 
 	}
 
-	public String salvarHtmlEmPdf() {
+	public String gerarPdf() {
 
-		Utilitarios.htmlToPdf(this.getMidia().getWeb().getConteudo(), this.getMidia().getTitulo() + "_" + TSUtil.gerarId());
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		map.put("html", this.getMidia().getWeb().getConteudo());
+		map.put("data_cadastro", this.getMidia().getDataCadastro());
+		map.put("fonte", this.getMidia().getSecao().getVeiculo().getDescricao());
+		map.put("secao", this.getMidia().getSecao().getDescricao());
+		map.put("url", this.getMidia().getWeb().getUrl());
+		map.put("titulo", this.getMidia().getTitulo());
+
+		try {
+
+			new br.com.varjaosite.util.JasperUtil().gerarRelatorio("doc_web.jasper", map, this.getMidia().getTitulo());
+
+		} catch (JRException e) {
+
+			e.printStackTrace();
+		}
 
 		return null;
 	}

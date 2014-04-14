@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="doc_web" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e94ea39e-3f53-4929-950d-5d8274c9ae23">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="56"/>
+	<parameter name="html" class="java.lang.String"/>
+	<parameter name="fonte" class="java.lang.String"/>
+	<parameter name="secao" class="java.lang.String"/>
+	<parameter name="url" class="java.lang.String"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="data_cadastro" class="java.sql.Timestamp"/>
+	<queryString>
+		<![CDATA[SELECT
+       w.conteudo as html, m.data_cadastro, s.descricao, v.descricao as fonte, w.url, m.titulo
+from midias m, web w, secoes s, veiculos v
+
+where
+     m.id = w.midia_id and tipo_midia_id = 4
+     and m.secao_id = s.id and s.veiculo_id = v.id
+	and m.id = 973720]]>
+	</queryString>
+	<field name="html" class="java.lang.String"/>
+	<field name="data_cadastro" class="java.sql.Timestamp"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="fonte" class="java.lang.String"/>
+	<field name="url" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="148" splitType="Stretch">
+			<image>
+				<reportElement x="199" y="0" width="211" height="131" uuid="058c31ec-5515-4020-81c4-9871165159d3"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="55" width="34" height="20" uuid="0374a63c-a1c7-4515-923a-a40941a839e4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<text><![CDATA[Fonte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="80" height="20" uuid="8ea13503-cd69-4b59-8b49-a48acdf7757b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<text><![CDATA[Publicada em:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH:mm:ss" isBlankWhenNull="true">
+				<reportElement x="54" y="41" width="100" height="20" uuid="48edf5ff-1d8f-44cc-a8bb-9fc0d6a9337a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{data_cadastro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="31" y="60" width="100" height="14" uuid="ffcbb30f-1d11-4bb3-bf66-0d0fe9fc029c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fonte}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="69" width="555" height="20" forecolor="#0000FF" backcolor="#0000FF" uuid="7a189b4b-c39d-4714-b42a-8c8af7d65351"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{url}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="100" width="555" height="60" uuid="d5ec9d77-9cbb-4509-9817-fe535be71b4b"/>
+				<textElement>
+					<font fontName="Tahoma" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{html}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="555" height="24" uuid="45495d0a-2f9a-4ce2-a42a-ab64122dcb22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="14" forecolor="#000000" backcolor="#000000" uuid="9aa3fc67-8620-4b09-b560-5f0f042121f3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[www.varjao.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="14" uuid="92262978-b7f0-4296-acfe-53e97d882228"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[© 2003-2012 Varjão Comunicação Integrada - Todos os direitos reservados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="555" height="14" uuid="9b60adad-6051-401c-b86b-6ee0aea28c04"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[Av. Tancredo Neves,909, Ed. André Guimarães Business Center, salas 1104 e 1105, Caminho das Árvores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="555" height="14" uuid="f2e732ac-3d24-4454-bbbd-3b24852039c5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[CEP 41820-021 - Salvador - Bahia - Telefax: (71) 3444-6800]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

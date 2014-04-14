@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -13,6 +14,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.jasperreports.engine.JRException;
 
 import org.primefaces.model.StreamedContent;
 
@@ -38,31 +41,10 @@ public class VisualizacaoFaces extends TSMainFaces {
 	private Midia midia;
 	private StreamedContent file;
 
-	public VisualizacaoFaces() {
+	public VisualizacaoFaces() throws UnsupportedEncodingException, InvalidKeyException, NoSuchPaddingException, BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException {
 
-		try {
+		this.carregar();
 
-			this.carregar();
-
-		} catch (InvalidKeyException e) {
-
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-
-			e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
-
-			e.printStackTrace();
-		} catch (BadPaddingException e) {
-
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-
-			e.printStackTrace();
-		} catch (IllegalBlockSizeException e) {
-
-			e.printStackTrace();
-		}
 	}
 
 	private String carregar() throws InvalidKeyException, UnsupportedEncodingException, NoSuchPaddingException, BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException {
@@ -130,9 +112,9 @@ public class VisualizacaoFaces extends TSMainFaces {
 		this.midia = new MidiaDAO().obter(new Midia(midiaId));
 
 		if (!TSUtil.isEmpty(this.midia) && !TSUtil.isEmpty(this.midia.getId())) {
-			
+
 			this.getMidia().setCliente(cliente);
-			
+
 			this.tratarArquivo();
 
 			return true;
@@ -218,10 +200,26 @@ public class VisualizacaoFaces extends TSMainFaces {
 		return null;
 
 	}
-	
-	public String salvarHtmlEmPdf() {
 
-		Utilitarios.htmlToPdf(this.getMidia().getWeb().getConteudo(), this.getMidia().getTitulo() + "_" + TSUtil.gerarId());
+	public String gerarPdf() {
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		map.put("html", this.getMidia().getWeb().getConteudo());
+		map.put("data_cadastro", this.getMidia().getDataCadastro());
+		map.put("fonte", this.getMidia().getSecao().getVeiculo().getDescricao());
+		map.put("secao", this.getMidia().getSecao().getDescricao());
+		map.put("url", this.getMidia().getWeb().getUrl());
+		map.put("titulo", this.getMidia().getTitulo());
+
+		try {
+
+			new br.com.varjaosite.util.JasperUtil().gerarRelatorio("doc_web.jasper", map, this.getMidia().getTitulo());
+
+		} catch (JRException e) {
+
+			e.printStackTrace();
+		}
 
 		return null;
 	}
