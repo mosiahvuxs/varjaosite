@@ -21,6 +21,7 @@ import br.com.topsys.util.TSCryptoUtil;
 import br.com.topsys.util.TSDateUtil;
 import br.com.topsys.util.TSUtil;
 import br.com.topsys.web.util.TSFacesUtil;
+import br.com.varjaosite.model.Midia;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -92,6 +93,33 @@ public final class Utilitarios {
 		try {
 
 			inFile = new FileInputStream(file);
+
+			inFile.read(sendBuf, 0, len);
+
+		} catch (FileNotFoundException fnfex) {
+
+			fnfex.printStackTrace();
+
+		} catch (IOException ioex) {
+
+			ioex.printStackTrace();
+		}
+
+		return sendBuf;
+	}
+
+	@SuppressWarnings("resource")
+	public static byte[] getBytesDownload(File file, Midia midia) {
+
+		int len = (int) file.length();
+
+		byte[] sendBuf = new byte[len];
+
+		FileInputStream inFile = null;
+
+		try {
+
+			inFile = new FileInputStream(Constantes.PASTA_ARQUIVOS_UPLOAD + TSUtil.getAnoMes(midia.getData()) + midia.getArquivo());
 
 			inFile.read(sendBuf, 0, len);
 

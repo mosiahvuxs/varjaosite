@@ -171,11 +171,11 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 		try {
 
-			File arquivo = new File(this.getMidia().getArquivoFormatado());
+			File arquivo = new File(this.midia.getArquivoFormatado());
 
-			byte[] b = Utilitarios.getBytes(arquivo);
+			byte[] b = Utilitarios.getBytesDownload(arquivo, this.midia);
 
-			if (!TSUtil.isEmpty(b)) {
+			if (!TSUtil.isEmpty(b) && b.length > 0) {
 
 				HttpServletResponse res = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
 

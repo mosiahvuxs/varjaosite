@@ -32,7 +32,7 @@ jQuery(function($){
   </style>
 <![endif]-->
 
-<title>Varjão - Contato</title>
+<title>Varjão - Comunicação Integrada</title>
 
 </h:head>
 
@@ -115,6 +115,8 @@ jQuery(function($){
     <div class="sombra-direita"></div>
   </div>
   
+  <p:growl showDetail="true" sticky="false" life="3000" showSummary="false" autoUpdate="true"/>
+  
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==1}">
 	  <div class="clipping-mailing-radio">
 	    <div class="clipping-title">Exibindo conteúdo de rádio</div>
@@ -145,7 +147,9 @@ jQuery(function($){
 		        </div>
 		        <h:panelGroup rendered="#{visualizacaoFaces.midia.arquivoEmDisco}">
 		        <div class="botao-radio">
-		        	<h:commandLink value="Salvar Áudio" action="#{visualizacaoFaces.download}" />
+		        	<h:form prependId="false">
+		        		<h:commandLink value="Salvar Áudio" action="#{visualizacaoFaces.download}" />
+		        	</h:form>
 		        </div>
 		        </h:panelGroup>
 		      <div class="clear"></div>
@@ -184,7 +188,9 @@ jQuery(function($){
 	        </div>
 	        <h:panelGroup rendered="#{visualizacaoFaces.midia.arquivoEmDisco}">
 	        	<div class="botao-tv">
-	        		<h:commandLink value="Salvar Vídeo" action="#{visualizacaoFaces.download}" />
+	        		<h:form prependId="false">
+	        			<h:commandLink value="Salvar Vídeo" action="#{visualizacaoFaces.download}" />
+	        		</h:form>
 	        	</div>
 	        </h:panelGroup>
 	      	<div class="clear"></div>
@@ -196,7 +202,7 @@ jQuery(function($){
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==3}">
   <div class="clipping-mailing-impresso">
     <div class="clipping-title">Exibindo conteúdo de mídia impressa</div>
-    <div class="imagem-clipping"><img src="#{visualizacaoFaces.midia.arquivoFormatado}" border="0"/></div>
+    <div class="imagem-clipping"><img src="#{facesContext.externalContext.requestContextPath}#{visualizacaoFaces.midia.arquivoFormatado}" border="0"/></div>
     <div class="clipping-info-wrapper">
       <div class="clipping-info-mailing">
         <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
@@ -221,7 +227,9 @@ jQuery(function($){
       </div>
       <h:panelGroup rendered="#{visualizacaoFaces.midia.arquivoEmDisco}">
 	      <div class="botao-impresso">
-	      	<h:commandLink value="Salvar Imagem" action="#{visualizacaoFaces.download}" />
+	      	<h:form prependId="false">
+	      		<h:commandLink value="Salvar Imagem" action="#{visualizacaoFaces.download}" />
+	      	</h:form>
 	      </div>
       </h:panelGroup>
       <div class="clear"></div>
@@ -243,7 +251,9 @@ jQuery(function($){
 	      </h:panelGroup>
 	      <h:panelGroup rendered="#{!empty visualizacaoFaces.midia.web.conteudo}">
 	      <div class="botao-web" style="margin-right: 10px;">
-	      	<h:commandLink value="Salvar PDF" action="#{visualizacaoFaces.gerarPdf}" />
+	      	<h:form prependId="false">
+	      		<h:commandLink value="Salvar PDF" action="#{visualizacaoFaces.gerarPdf}" />
+	      	</h:form>
 	      </div>
 	      </h:panelGroup>
 	      <div class="clear"></div>
