@@ -3,10 +3,8 @@ package br.com.varjaosite.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.text.Normalizer;
 import java.text.ParseException;
@@ -17,20 +15,23 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
+
 import br.com.topsys.util.TSCryptoUtil;
 import br.com.topsys.util.TSDateUtil;
 import br.com.topsys.util.TSUtil;
 import br.com.topsys.web.util.TSFacesUtil;
 import br.com.varjaosite.model.Midia;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.tool.xml.XMLWorkerHelper;
-
 public final class Utilitarios {
 
 	private Utilitarios() {
 
+	}
+
+	public static String decodificar(String s) {
+		return StringUtils.newStringUtf8(Base64.decodeBase64(s));
 	}
 
 	public static String tratarString(String valor) {
@@ -178,43 +179,6 @@ public final class Utilitarios {
 
 		return null;
 
-	}
-
-	public static String htmlToPdf(String texto, String nomeArquivo) {
-
-		String html = Utilitarios.lerArquivo("pdf.html");
-
-		html = html.replace("[texto]", texto);
-
-		html = html.replace("[url_projeto]", Constantes.URL_SITE_PRODUCAO);
-
-		Document doc = new Document();
-
-		String arquivo = Constantes.PASTA_ARQUIVOS_UPLOAD + nomeArquivo + ".pdf";
-
-		try {
-
-			PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream(arquivo));
-
-			doc.open();
-
-			XMLWorkerHelper worker = XMLWorkerHelper.getInstance();
-
-			worker.parseXHtml(writer, doc, new StringReader(html));
-
-			doc.close();
-
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (com.itextpdf.text.DocumentException e) {
-
-			e.printStackTrace();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	public static void downloadFile(String filename, String fileLocation, String contentType, FacesContext facesContext) {

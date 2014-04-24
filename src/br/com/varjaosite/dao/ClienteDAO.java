@@ -172,6 +172,15 @@ public class ClienteDAO {
 		return (Cliente) broker.getObjectBean(Cliente.class, "id", "nome", "flagAtivo", "logomarca", "parceiro.id", "contato", "email", "autenticacao.login", "autenticacao.senha", "flagImpresso", "flagAudio", "flagVideo", "flagEnvioCompleto", "flagExigeSenha", "endereco.logradouro", "endereco.bairro", "endereco.numero", "endereco.cep", "endereco.complemento", "flagEnviarAvaliacao", "flagValorImpresso", "flagValorAudio", "flagValorVideo", "endereco.cidade.id", "endereco.estado.id", "tipoCliente.id", "flagWeb", "flagValorWeb");
 	}
 
+	public Cliente obterPorCodigoIntegracao(Cliente model) {
+
+		TSDataBaseBrokerIf broker = TSDataBaseBrokerFactory.getDataBaseBrokerIf();
+
+		broker.setPropertySQL("clientedao.obterPorCodigoIntegracao", model.getCodigoIntegracao());
+
+		return (Cliente) broker.getObjectBean(Cliente.class, "id", "nome", "flagAtivo", "logomarca", "parceiro.id", "contato", "email", "autenticacao.login", "autenticacao.senha", "flagImpresso", "flagAudio", "flagVideo", "flagEnvioCompleto", "flagExigeSenha", "endereco.logradouro", "endereco.bairro", "endereco.numero", "endereco.cep", "endereco.complemento", "flagEnviarAvaliacao", "flagValorImpresso", "flagValorAudio", "flagValorVideo", "endereco.cidade.id", "endereco.estado.id", "tipoCliente.id", "flagWeb", "flagValorWeb");
+	}
+
 	public void alterar(Cliente model) throws TSApplicationException {
 
 		TSDataBaseBrokerIf broker = TSDataBaseBrokerFactory.getDataBaseBrokerIf();

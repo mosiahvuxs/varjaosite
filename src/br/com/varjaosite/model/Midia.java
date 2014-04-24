@@ -67,6 +67,8 @@ public class Midia implements Serializable {
 	private String arquivoFormatado;
 	
 	private Timestamp dataCadastro;
+	
+	private Long codigoIntegracao;
 
 	public Midia() {
 		// TODO Auto-generated constructor stub
@@ -380,5 +382,13 @@ public class Midia implements Serializable {
 
 	public void setDataCadastro(Timestamp dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+
+	public Long getCodigoIntegracao() {
+		return TSUtil.tratarLong(codigoIntegracao);
+	}
+
+	public void setCodigoIntegracao(Long codigoIntegracao) {
+		this.codigoIntegracao = codigoIntegracao;
 	}
 }

@@ -64,6 +64,8 @@ public class Cliente implements Serializable {
 	private String logoMarcaFormatada;
 
 	private Boolean flagValorWeb = Boolean.FALSE;
+	
+	private Long codigoIntegracao;
 
 	public Cliente() {
 
@@ -339,6 +341,14 @@ public class Cliente implements Serializable {
 
 	public void setFlagValorWeb(Boolean flagValorWeb) {
 		this.flagValorWeb = flagValorWeb;
+	}
+
+	public Long getCodigoIntegracao() {
+		return TSUtil.tratarLong(codigoIntegracao);
+	}
+
+	public void setCodigoIntegracao(Long codigoIntegracao) {
+		this.codigoIntegracao = codigoIntegracao;
 	}
 
 }

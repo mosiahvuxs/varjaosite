@@ -1,18 +1,22 @@
 package br.com.varjaosite.util;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
+
 public class Main {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		String chamada = "Lorem Ipsum has been the industry's standard dummy text ever since teste mois vuxs";
-		
-		System.out.println(chamada.length());
-		
-		System.out.println(chamada.substring(0, 67).trim() + "...");
+
+		String valorDecodificado = decode("eyJjbGllbnRlIjo3OCwiY29kaWdvIjo2OTM0Njl9");
+
+		System.out.println(valorDecodificado);
+
+		System.out.println(valorDecodificado.substring(11, 13));
+		System.out.println(valorDecodificado.substring(23, valorDecodificado.length() - 1));
+
 	}
 
+	public static String decode(String s) {
+		return StringUtils.newStringUtf8(Base64.decodeBase64(s));
+	}
 }

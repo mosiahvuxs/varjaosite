@@ -53,13 +53,24 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 		String midiaId = TSFacesUtil.getRequestParameter("midia");
 
+		String codigoIntegracao = TSFacesUtil.getRequestParameter("codigoIntegracao");
+
 		if (!TSUtil.isEmpty(clienteId) && !TSUtil.isEmpty(midiaId) && TSUtil.isNumeric(TSCryptoUtil.desCriptografar(clienteId)) && TSUtil.isNumeric(TSCryptoUtil.desCriptografar(midiaId))) {
 
 			String clienteIdDescriptografado = TSCryptoUtil.desCriptografar(clienteId);
 
 			String midiaIdDescriptografado = TSCryptoUtil.desCriptografar(midiaId);
 
-			Cliente cliente = new ClienteDAO().obter(new Cliente(Long.valueOf(clienteIdDescriptografado)));
+			Cliente cliente = new Cliente();
+
+			if (!TSUtil.isEmpty(codigoIntegracao) && codigoIntegracao.equals("true")) {
+
+				cliente = new ClienteDAO().obter(new Cliente(Long.valueOf(clienteIdDescriptografado)));
+
+			} else {
+
+				cliente = new ClienteDAO().obter(new Cliente(Long.valueOf(clienteIdDescriptografado)));
+			}
 
 			if (!TSUtil.isEmpty(cliente) && !TSUtil.isEmpty(cliente.getId())) {
 
@@ -67,7 +78,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 				if (!cliente.getFlagExigeSenha()) {
 
-					if (!this.carregaMidia(Long.valueOf(midiaIdDescriptografado), cliente)) {
+					if (!this.carregaMidia(Long.valueOf(midiaIdDescriptografado), cliente, codigoIntegracao)) {
 
 						this.redirecionarIndex();
 
@@ -96,6 +107,9 @@ public class VisualizacaoFaces extends TSMainFaces {
 					this.redirecionarLogin(clienteId, midiaId);
 				}
 
+			} else {
+
+				this.redirecionarIndex();
 			}
 
 		} else {
@@ -107,9 +121,22 @@ public class VisualizacaoFaces extends TSMainFaces {
 		return null;
 	}
 
-	private boolean carregaMidia(Long midiaId, Cliente cliente) {
+	private boolean carregaMidia(Long midiaId, Cliente cliente, String codigoIntegracao) {
 
-		this.midia = new MidiaDAO().obter(new Midia(midiaId));
+		this.midia = new Midia();
+
+		if (!TSUtil.isEmpty(codigoIntegracao) && codigoIntegracao.equals("true")) {
+
+			this.midia.setCodigoIntegracao(midiaId);
+
+			this.midia = new MidiaDAO().obterPorCodigoIntegracao(this.midia);
+
+		} else {
+
+			this.midia.setId(midiaId);
+
+			this.midia = new MidiaDAO().obter(this.midia);
+		}
 
 		if (!TSUtil.isEmpty(this.midia) && !TSUtil.isEmpty(this.midia.getId())) {
 
