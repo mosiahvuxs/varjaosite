@@ -45,4 +45,6 @@ public final class Constantes {
 	
 	public static final String MIME_TYPE_PDF = "application/pdf";
 
+	public static final String IMAGEM_IMPRESSO_AMPLIADO = "imagemImpressoAmpliado";
+
 }

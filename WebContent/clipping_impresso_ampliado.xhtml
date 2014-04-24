@@ -36,6 +36,8 @@ jQuery(function($){
 
 <h:body>
 
+<h:form>
+
 <div class="site-wrapper"> 
   
   <div class="barra-topo"></div>
@@ -46,10 +48,13 @@ jQuery(function($){
   <div class="header">
     <div class="logo"><a href="#{facesContext.externalContext.requestContextPath}/index.xhtml"><img src="#{facesContext.externalContext.requestContextPath}/images/logo.png" border="0"/></a></div>    
   </div>
+  
   <div class="clear"></div>
-  <div class="content-clipping-impresso">
-	<img src="#{clippingFaces.midia.arquivoFormatado}"/>
-  </div>
+  
+  	<div class="content-clipping-impresso">
+  		<h:graphicImage value="#{sessionScope.imagemImpressoAmpliado}" alt=""/>
+	</div>
+		
   <div class="botao-voltar"><a href="#{facesContext.externalContext.requestContextPath}/clipping.xhtml">Voltar</a></div>
   <div class="sombra-base"></div>
   
@@ -58,6 +63,8 @@ jQuery(function($){
   </footer>
   
 </div>
+
+</h:form>
 
 </h:body>
 
