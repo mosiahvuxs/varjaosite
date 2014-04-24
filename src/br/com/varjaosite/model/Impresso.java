@@ -2,6 +2,8 @@ package br.com.varjaosite.model;
 
 import java.io.Serializable;
 
+import br.com.topsys.util.TSUtil;
+
 @SuppressWarnings("serial")
 public class Impresso implements Serializable {
 
@@ -93,7 +95,7 @@ public class Impresso implements Serializable {
 	}
 
 	public String getNumeroPagina() {
-		return numeroPagina;
+		return TSUtil.tratarString(numeroPagina);
 	}
 
 	public void setNumeroPagina(String numeroPagina) {

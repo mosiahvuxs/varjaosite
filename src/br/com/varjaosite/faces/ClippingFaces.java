@@ -218,7 +218,7 @@ public class ClippingFaces extends TSMainFaces {
 
 		this.tratarArquivo();
 		
-		super.addObjectInRequest(Constantes.IMAGEM_IMPRESSO_AMPLIADO, this.midia.getArquivo());
+		super.addObjectInSession(Constantes.IMAGEM_IMPRESSO_AMPLIADO, this.midia.getArquivoFormatado());
 
 		return Constantes.PAGINA_CLIPPING_IMPRESSO_AMPLIADO;
 	}

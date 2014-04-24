@@ -207,6 +207,9 @@ jQuery(function($){
       <div class="clipping-info-mailing">
         <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
         <div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}</div>
+        <h:panelGroup rendered="#{!empty visualizacaoFaces.midia.impresso.numeroPagina}">
+        	<div class="clipping-info">, Pag. #{visualizacaoFaces.midia.impresso.numeroPagina}</div>
+        </h:panelGroup>
       </div>
       <div class="icone-aval-mailing">
       	<h:panelGroup rendered="#{visualizacaoFaces.midia.avaliacao.id==1}">

@@ -258,7 +258,9 @@ jQuery(function($){
 		    <div class="clipping-chamada">
 		    	#{item.chamada}
         	</div>
-		    <div class="clipping-descricao">Publicado em: <h:outputText value="#{item.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>, #{item.secao.veiculo.descricao}</div>
+		    <div class="clipping-descricao">
+		    	Publicado em: <h:outputText value="#{item.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>, #{item.secao.veiculo.descricao}, #{item.secao.descricao}<h:panelGroup rendered="#{!empty item.impresso.numeroPagina}">, Pag. #{item.impresso.numeroPagina}</h:panelGroup>
+		    </div>
 		  </div>
 		  <div class="icone-aval">
 		  	<h:panelGroup rendered="#{item.avaliacao.id==1}">
