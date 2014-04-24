@@ -171,7 +171,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 		try {
 
-			File arquivo = new File(this.midia.getArquivoFormatado());
+			File arquivo = new File(Constantes.PASTA_ARQUIVOS_UPLOAD + TSUtil.getAnoMes(this.midia.getData()) + this.midia.getArquivo());
 
 			byte[] b = Utilitarios.getBytesDownload(arquivo, this.midia);
 
@@ -204,7 +204,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 	public String gerarPdf() {
 
 		try {
-			
+
 			new br.com.varjaosite.util.JasperUtil().gerarPdf("doc_web.jasper", new PdfWeb(this.midia));
 
 		} catch (JRException e) {
