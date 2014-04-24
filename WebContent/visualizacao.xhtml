@@ -120,7 +120,7 @@ jQuery(function($){
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==1}">
 	  <div class="clipping-mailing-radio">
 	    <div class="clipping-title">Exibindo conteúdo de rádio</div>
-		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}" width="200" height="100">
+		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}" width="200" height="100" player="windows">
 		    	<f:param name="autostart" value="false" />
 		    </p:media>
 		    <div class="clipping-info-wrapper">
@@ -161,7 +161,7 @@ jQuery(function($){
   	
   	<div class="clipping-mailing">
 	    <div class="clipping-title">Exibindo conteúdo de TV</div>
-		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}" width="600" height="450">
+		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}" player="windows">
 		    	<f:param name="autostart" value="false" />
 		    </p:media>
 	    	<div class="clipping-info-wrapper">

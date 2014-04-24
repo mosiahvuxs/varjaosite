@@ -2,13 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="doc_web" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e94ea39e-3f53-4929-950d-5d8274c9ae23">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="56"/>
-	<parameter name="html" class="java.lang.String"/>
-	<parameter name="fonte" class="java.lang.String"/>
-	<parameter name="secao" class="java.lang.String"/>
-	<parameter name="url" class="java.lang.String"/>
-	<parameter name="titulo" class="java.lang.String"/>
-	<parameter name="data_cadastro" class="java.sql.Timestamp"/>
+	<property name="ireport.y" value="44"/>
 	<queryString>
 		<![CDATA[SELECT
        w.conteudo as html, m.data_cadastro, s.descricao, v.descricao as fonte, w.url, m.titulo
@@ -19,73 +13,86 @@ where
      and m.secao_id = s.id and s.veiculo_id = v.id
 	and m.id = 973720]]>
 	</queryString>
-	<field name="html" class="java.lang.String"/>
-	<field name="data_cadastro" class="java.sql.Timestamp"/>
-	<field name="descricao" class="java.lang.String"/>
-	<field name="fonte" class="java.lang.String"/>
-	<field name="url" class="java.lang.String"/>
-	<field name="titulo" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String">
+		<fieldDescription><![CDATA[titulo]]></fieldDescription>
+	</field>
+	<field name="dataPublicacao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[dataPublicacao]]></fieldDescription>
+	</field>
+	<field name="fonte" class="java.lang.String">
+		<fieldDescription><![CDATA[fonte]]></fieldDescription>
+	</field>
+	<field name="programa" class="java.lang.String">
+		<fieldDescription><![CDATA[programa]]></fieldDescription>
+	</field>
+	<field name="url" class="java.lang.String">
+		<fieldDescription><![CDATA[url]]></fieldDescription>
+	</field>
+	<field name="conteudo" class="java.lang.String">
+		<fieldDescription><![CDATA[conteudo]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="148" splitType="Stretch">
+		<band height="161" splitType="Stretch">
 			<image>
 				<reportElement x="199" y="0" width="211" height="131" uuid="058c31ec-5515-4020-81c4-9871165159d3"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
+			<textField>
+				<reportElement x="0" y="136" width="555" height="25" uuid="52ae04ee-8c44-4556-9311-09745bded4a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>
 		<band height="160" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="55" width="34" height="20" uuid="0374a63c-a1c7-4515-923a-a40941a839e4"/>
+				<reportElement x="0" y="23" width="41" height="20" uuid="0374a63c-a1c7-4515-923a-a40941a839e4"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
 				<text><![CDATA[Fonte:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="41" width="80" height="20" uuid="8ea13503-cd69-4b59-8b49-a48acdf7757b"/>
+				<reportElement x="0" y="9" width="80" height="20" uuid="8ea13503-cd69-4b59-8b49-a48acdf7757b"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
 				<text><![CDATA[Publicada em:]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH:mm:ss" isBlankWhenNull="true">
-				<reportElement x="54" y="41" width="100" height="20" uuid="48edf5ff-1d8f-44cc-a8bb-9fc0d6a9337a"/>
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement x="79" y="9" width="119" height="20" isPrintWhenDetailOverflows="true" uuid="5ea70f4a-55c3-4412-a000-0ea64a11ec63"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{data_cadastro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataPublicacao}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement x="31" y="60" width="100" height="14" uuid="ffcbb30f-1d11-4bb3-bf66-0d0fe9fc029c"/>
+				<reportElement x="41" y="23" width="354" height="20" isPrintWhenDetailOverflows="true" uuid="37a97a71-ef79-4148-8d0a-5651f55aa7e2"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{fonte}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fonte}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement x="0" y="69" width="555" height="20" forecolor="#0000FF" backcolor="#0000FF" uuid="7a189b4b-c39d-4714-b42a-8c8af7d65351"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="0" y="41" width="555" height="20" isPrintWhenDetailOverflows="true" forecolor="#0000FF" uuid="83170cdf-1772-4a3c-8bcf-1196d0712fed"/>
+				<textElement verticalAlignment="Middle" markup="html">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{url}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{url}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement x="0" y="100" width="555" height="60" uuid="d5ec9d77-9cbb-4509-9817-fe535be71b4b"/>
-				<textElement>
+				<reportElement x="0" y="82" width="555" height="74" isPrintWhenDetailOverflows="true" uuid="48642276-2f89-46c8-bac8-096c441303b6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="html">
 					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{html}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="0" width="555" height="24" uuid="45495d0a-2f9a-4ce2-a42a-ab64122dcb22"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{conteudo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -2,31 +2,34 @@ package br.com.varjaosite.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.context.ExternalContext;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import br.com.topsys.util.TSUtil;
 import br.com.topsys.web.util.TSFacesUtil;
+import br.com.varjaosite.model.PdfWeb;
 
 public class JasperUtil {
 
-	public void gerarRelatorio(String jasper, Map<String, Object> parametros, String nomePdf) throws JRException {
+	public void gerarPdf(String jasper, PdfWeb model) throws JRException {
 
-		InputStream stream = null;
+		List<PdfWeb> pdfWeb = new ArrayList<PdfWeb>();
 
-		stream = this.findReport(jasper);
+		pdfWeb.add(model);
 
-		//jasper = TSFacesUtil.getServletContext().getRealPath("WEB-INF" + File.separator + "relatorios" + File.separator + jasper);
+		JRBeanCollectionDataSource lista = new JRBeanCollectionDataSource(pdfWeb);
 
-		JasperPrint impressao = JasperFillManager.fillReport(stream, parametros);
+		jasper = TSFacesUtil.getServletContext().getRealPath("WEB-INF" + File.separator + "relatorios" + File.separator + jasper);
+
+		JasperPrint impressao = JasperFillManager.fillReport(jasper, null, lista);
 
 		if (!TSUtil.isEmpty(impressao) && !TSUtil.isEmpty(impressao.getPages()) && impressao.getPages().size() > 0) {
 
@@ -34,9 +37,9 @@ public class JasperUtil {
 
 			HttpServletResponse response = (HttpServletResponse) econtext.getResponse();
 
-			response.setContentType("APPLICATION/PDF");
+			response.setContentType(Constantes.MIME_TYPE_PDF);
 
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + nomePdf + ".pdf\"");
+			response.setHeader("Content-Disposition", "attachment; filename=\"" + model.getTitulo().toLowerCase() + ".pdf\"");
 
 			try {
 
@@ -63,15 +66,6 @@ public class JasperUtil {
 			TSFacesUtil.addInfoMessage("Não foi possível gerar o PDF.");
 		}
 
-	}
-
-	private InputStream findReport(String nomeArquivo) {
-
-		final ServletContext servletContext = (ServletContext) TSFacesUtil.getFacesContext().getExternalContext().getContext();
-
-		InputStream is = servletContext.getResourceAsStream("WEB-INF" + File.separator + "relatorios" + File.separator + nomeArquivo);
-
-		return is;
 	}
 
 }

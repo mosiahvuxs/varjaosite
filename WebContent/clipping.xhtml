@@ -287,14 +287,14 @@ jQuery(function($){
 		      	</p:media>
 		  	</h:panelGroup>
 		  	<h:panelGroup rendered="#{item.tipoMidia.id==2}">
-			 	<p:media value="#{item.arquivoFormatado}" width="280" height="210" player="windows">
+			 	<p:media value="#{item.arquivoFormatado}" player="windows">
 		      		<f:param name="autostart" value="false" />
 		      	</p:media>
 		  	</h:panelGroup>
 			<h:panelGroup rendered="#{item.tipoMidia.id==3}">
 			 	<div class="imagem-clipping">
 			 	<h:commandLink action="#{clippingFaces.actionListener}">
-			 		<h:graphicImage width="800" height="600" value="#{item.arquivoFormatado}"/>
+			 		<h:graphicImage value="#{item.arquivoFormatado}"/>
 			 		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}" />
 			 		<f:ajax/>
 			 	</h:commandLink>

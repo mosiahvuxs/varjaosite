@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -30,6 +29,7 @@ import br.com.varjaosite.dao.MidiaEnvioDAO;
 import br.com.varjaosite.model.Cliente;
 import br.com.varjaosite.model.Midia;
 import br.com.varjaosite.model.MidiaEnvio;
+import br.com.varjaosite.model.PdfWeb;
 import br.com.varjaosite.model.Usuario;
 import br.com.varjaosite.util.Constantes;
 import br.com.varjaosite.util.Utilitarios;
@@ -203,18 +203,9 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 	public String gerarPdf() {
 
-		HashMap<String, Object> map = new HashMap<String, Object>();
-
-		map.put("html", this.getMidia().getWeb().getConteudo());
-		map.put("data_cadastro", this.getMidia().getDataCadastro());
-		map.put("fonte", this.getMidia().getSecao().getVeiculo().getDescricao());
-		map.put("secao", this.getMidia().getSecao().getDescricao());
-		map.put("url", this.getMidia().getWeb().getUrl());
-		map.put("titulo", this.getMidia().getTitulo());
-
 		try {
-
-			new br.com.varjaosite.util.JasperUtil().gerarRelatorio("doc_web.jasper", map, this.getMidia().getTitulo());
+			
+			new br.com.varjaosite.util.JasperUtil().gerarPdf("doc_web.jasper", new PdfWeb(this.midia));
 
 		} catch (JRException e) {
 
