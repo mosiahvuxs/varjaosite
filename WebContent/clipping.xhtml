@@ -284,14 +284,14 @@ jQuery(function($){
 			
 		<div class="clipping-content">
 			<h:panelGroup rendered="#{item.tipoMidia.id==1}">
-				<p:media value="#{item.arquivoFormatado}" player="windows">
-		      		<f:param name="autostart" value="false" />
-		      	</p:media>
-		  	</h:panelGroup>
+				<audio controls="controls"> 
+					<source src="#{item.arquivoFormatado}" type="audio/mp3"/>
+				</audio>
+			</h:panelGroup>
 		  	<h:panelGroup rendered="#{item.tipoMidia.id==2}">
-		  		<p:media value="#{item.arquivoFormatado}" player="windows">
-		      		<f:param name="autostart" value="false" />
-		      	</p:media>
+		  		<video controls="controls">
+		          <source src="#{item.arquivoFormatado}" type="video/mp4"/>
+		        </video>
 		  	</h:panelGroup>
 			<h:panelGroup rendered="#{item.tipoMidia.id==3}">
 			 	<div class="imagem-clipping">
