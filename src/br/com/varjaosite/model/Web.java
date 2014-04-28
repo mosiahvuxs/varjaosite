@@ -2,6 +2,8 @@ package br.com.varjaosite.model;
 
 import java.io.Serializable;
 
+import br.com.topsys.util.TSUtil;
+
 @SuppressWarnings("serial")
 public class Web implements Serializable {
 
@@ -77,6 +79,12 @@ public class Web implements Serializable {
 	}
 
 	public String getUrl() {
+
+		if (!TSUtil.isEmpty(TSUtil.tratarString(this.url)) && !this.url.contains("http://")) {
+
+			this.url = "http://" + this.url;
+		}
+
 		return url;
 	}
 
