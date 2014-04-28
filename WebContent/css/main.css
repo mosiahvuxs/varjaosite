@@ -468,15 +468,6 @@ input.botao-busca{
 	margin: auto;
 }
 
-.textRodape{
-	font-family: 'Sans Serif';
-	font-size: 12px;
-	text-align: center;
-	padding-top: 15px;
-	margin: auto;
-	font-weight: normal;
-}
-
 .sombra-base{
 	width: 302px;
 	height: 11px;
@@ -955,36 +946,7 @@ input.contato-field{
 	padding: 5px 10px 5px 10px;
 }
 
-input.mensagem-field{
-	width: 166px;
-	height: 17px;
-	font-family: 'Bree Thin';
-	text-transform: uppercase;
-	color: #C2C4C6;
-	background-image: url(../images/input_contato.png);
-	background-color: transparent;
-	outline: none;
-	border: none;
-	float: left;
-	margin: 10px 0px 0px 20px;
-	padding: 5px 10px 5px 10px;
-}
-
 textarea#contato{
-	width: 377px;
-	height: 86px;
-	font-family: 'Bree Thin';
-	color: #C2C4C6;
-	background-image: url(../images/textarea-field.png);
-	background-repeat: no-repeat;
-	resize: none;
-	outline: none;
-	border: none;
-	margin: 10px 0px 0px 20px;
-	padding: 5px 10px 0px 10px;
-}
-
-textarea#mensagem{
 	width: 377px;
 	height: 86px;
 	font-family: 'Bree Thin';
@@ -1341,6 +1303,7 @@ margin-top: 4px;
 
 .imagem-clipping{
 	margin-top: 10px;
+	text-align: center;
 }
 
 .imagem-clipping img{
@@ -1348,20 +1311,19 @@ margin-top: 4px;
 }
 
 .content-clipping-impresso{
-	height: 400px;
 	margin-top: 20px;
-	overflow: auto;
 	margin: 10px auto;
-}
-
-.content-clipping-impresso img{
-	width: 100%;
+	text-align: center;
 }
 
 .clipping-mailing, .clipping-mailing-impresso{
 	width: 60%;
 	margin: 5% auto;
 	padding-bottom: 20px;
+}
+
+.clipping-mailing object{
+	width: 100%;
 }
 
 .botao-voltar{
