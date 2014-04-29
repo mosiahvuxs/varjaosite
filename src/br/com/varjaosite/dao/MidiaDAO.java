@@ -269,7 +269,7 @@ public class MidiaDAO {
 
 		broker.setPropertySQL("midiadao.obter", model.getId());
 
-		return (Midia) broker.getObjectBean(Midia.class, "audio.id", "video.id", "impresso.id", "web.id", "secao.id", "secao.valor", "impresso.tamanho", "web.pixels", "dataCadastro", "id", "audio.arquivo", "video.arquivo", "impresso.arquivo", "web.arquivo", "titulo", "chamada", "avaliacao.id", "avaliacao.descricao", "tipoMidia.id", "tipoMidia.descricao", "data", "impresso.conteudo", "web.conteudo", "web.url", "secao.descricao", "secao.veiculo.descricao");
+		return (Midia) broker.getObjectBean(Midia.class, "audio.id", "audio.duracao", "video.id", "video.duracao", "impresso.id", "web.id", "secao.id", "secao.valor", "impresso.tamanho", "web.pixels", "dataCadastro", "id", "audio.arquivo", "video.arquivo", "impresso.arquivo", "web.arquivo", "titulo", "chamada", "avaliacao.id", "avaliacao.descricao", "tipoMidia.id", "tipoMidia.descricao", "data", "impresso.conteudo", "web.conteudo", "web.url", "secao.descricao", "secao.veiculo.descricao");
 	}
 
 	public Midia obterPorCodigoIntegracao(Midia model) {
