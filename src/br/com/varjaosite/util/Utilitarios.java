@@ -225,4 +225,23 @@ public final class Utilitarios {
 		}
 
 	}
+	
+	public static Integer valorEmSegundos(String duracao) {
+
+		if (duracao.length() == 8) {
+
+			Integer horas = Integer.valueOf(duracao.substring(0, 2));
+
+			Integer minutos = Integer.valueOf(duracao.substring(3, 5));
+
+			Integer segundos = Integer.valueOf(duracao.substring(6, 8));
+
+			Integer totalSegundos = (horas * 3600) + (minutos * 60) + segundos;
+
+			return totalSegundos;
+
+		}
+
+		return 0;
+	}
 }

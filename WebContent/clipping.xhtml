@@ -256,7 +256,7 @@ jQuery(function($){
    		<div class="clipping-chamada-wrapper">
 		  <div class="texto-wrapper">
 		    <div class="clipping-chamada">
-		    	#{item.chamada}
+		    	#{item.titulo}
         	</div>
 		    <div class="clipping-descricao">
 		    	Publicado em: <h:outputText value="#{item.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>, #{item.secao.veiculo.descricao}, #{item.secao.descricao}<h:panelGroup rendered="#{!empty item.impresso.numeroPagina}">, Pag. #{item.impresso.numeroPagina}</h:panelGroup>
@@ -284,14 +284,14 @@ jQuery(function($){
 			
 		<div class="clipping-content">
 			<h:panelGroup rendered="#{item.tipoMidia.id==1}">
-				<audio controls="controls"> 
-					<source src="#{item.arquivoFormatado}" type="audio/mp3"/>
-				</audio>
+				<p:media value="#{item.arquivoFormatado}">
+		  			<f:param name="autostart" value="false"/>
+		  		</p:media>
 			</h:panelGroup>
 		  	<h:panelGroup rendered="#{item.tipoMidia.id==2}">
-		  		<video controls="controls">
-		          <source src="#{item.arquivoFormatado}" type="video/mp4"/>
-		        </video>
+		  		<p:media value="#{item.arquivoFormatado}">
+		  			<f:param name="autostart" value="false"/>
+		  		</p:media>
 		  	</h:panelGroup>
 			<h:panelGroup rendered="#{item.tipoMidia.id==3}">
 			 	<div class="imagem-clipping">

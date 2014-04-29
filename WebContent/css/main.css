@@ -108,8 +108,8 @@ p{
 }
 
 .logo{
-	width: 200px;
-	height: 195px;
+	width: 377px;
+	height: 106px;
 	margin: 15px auto 0 auto;
 }
 
@@ -694,8 +694,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 
 .content-page-portifolio{
 	width: 90%;
-	height: 300px;
-	overflow: auto;
 	padding-right: 20px;
 	margin: 80px auto 0 auto;
 }
@@ -1203,7 +1201,7 @@ margin-top: 4px;
 
 
 .clipping-content{
-	width: 50%;
+	width: 85%;
 	margin: 10px 0 10px 0;
 	display: none;
 }
@@ -1307,7 +1305,7 @@ margin-top: 4px;
 }
 
 .imagem-clipping img{
-	width: 100%;
+	width: 30%;
 }
 
 .content-clipping-impresso{
@@ -1432,10 +1430,6 @@ video{
 	border: 1px #666 dotted;
 }
 
-.web-content{
-	width: 80%;
-}
-
 .web-content-mailing{
 	background-color: #FFF;
 }
@@ -1510,7 +1504,7 @@ input.login-obrigatorio{
 	width: 200px;
 	height: 20px;
 	font-family: "Bree Light";
-	font-size: 24px;
+	font-size: 16px;
 	color: #999;
 	border: 1px #999 solid;
 	border-radius: 10px;

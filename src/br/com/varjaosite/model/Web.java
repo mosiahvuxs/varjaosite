@@ -1,6 +1,7 @@
 package br.com.varjaosite.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import br.com.topsys.util.TSUtil;
 
@@ -20,6 +21,8 @@ public class Web implements Serializable {
 	private String url;
 
 	private Midia midia;
+	
+	private BigDecimal pixels;
 
 	public Long getId() {
 		return id;
@@ -106,6 +109,14 @@ public class Web implements Serializable {
 
 	public void setNumeroPagina(String numeroPagina) {
 		this.numeroPagina = numeroPagina;
+	}
+
+	public BigDecimal getPixels() {
+		return pixels;
+	}
+
+	public void setPixels(BigDecimal pixels) {
+		this.pixels = pixels;
 	}
 
 }

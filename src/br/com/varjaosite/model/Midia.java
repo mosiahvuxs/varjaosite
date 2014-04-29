@@ -2,6 +2,7 @@ package br.com.varjaosite.model;
 
 import java.io.File;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,7 @@ import br.com.topsys.util.TSParseUtil;
 import br.com.topsys.util.TSUtil;
 import br.com.topsys.web.util.TSFacesUtil;
 import br.com.varjaosite.util.Constantes;
+import br.com.varjaosite.util.Utilitarios;
 
 @SuppressWarnings("serial")
 public class Midia implements Serializable {
@@ -65,13 +67,17 @@ public class Midia implements Serializable {
 	private boolean arquivoEmDisco;
 
 	private String arquivoFormatado;
-	
+
 	private Timestamp dataCadastro;
-	
+
 	private Long codigoIntegracao;
 
+	private boolean exibirValoracao;
+
+	private String valoracao;
+
 	public Midia() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Midia(Long id) {
@@ -390,5 +396,68 @@ public class Midia implements Serializable {
 
 	public void setCodigoIntegracao(Long codigoIntegracao) {
 		this.codigoIntegracao = codigoIntegracao;
+	}
+
+	public boolean isExibirValoracao() {
+
+		if (!TSUtil.isEmpty(this.cliente) && !TSUtil.isEmpty(this.cliente.getId()) && !TSUtil.isEmpty(this.tipoMidia) && !TSUtil.isEmpty(this.tipoMidia.getId())) {
+
+			if (this.tipoMidia.getId().equals(Constantes.AUDIO)) {
+
+				this.exibirValoracao = this.cliente.getFlagValorAudio();
+
+			} else if (this.tipoMidia.getId().equals(Constantes.VIDEO)) {
+
+				this.exibirValoracao = this.cliente.getFlagValorVideo();
+
+			} else if (this.tipoMidia.getId().equals(Constantes.IMPRESSO)) {
+
+				this.exibirValoracao = this.cliente.getFlagValorImpresso();
+
+			} else if (this.tipoMidia.getId().equals(Constantes.WEB)) {
+
+				this.exibirValoracao = this.cliente.getFlagValorWeb();
+			}
+
+		} else {
+
+			this.exibirValoracao = false;
+		}
+
+		return exibirValoracao;
+	}
+
+	public void setExibirValoracao(boolean exibirValoracao) {
+
+		this.exibirValoracao = exibirValoracao;
+	}
+
+	public String getValoracao() {
+
+		if (!TSUtil.isEmpty(this.secao) && !TSUtil.isEmpty(this.secao.getId()) && !TSUtil.isEmpty(this.tipoMidia) && !TSUtil.isEmpty(this.tipoMidia.getId())) {
+
+			if (this.tipoMidia.getId().equals(Constantes.AUDIO) && !TSUtil.isEmpty(this.audio) && !TSUtil.isEmpty(this.audio.getId())) {
+
+				this.valoracao = this.getSecao().getValor().multiply(new BigDecimal(Utilitarios.valorEmSegundos(this.audio.getDuracao()).toString())).toString();
+
+			} else if (this.tipoMidia.getId().equals(Constantes.VIDEO) && !TSUtil.isEmpty(this.video) && !TSUtil.isEmpty(this.video.getId())) {
+
+				this.valoracao = this.getSecao().getValor().multiply(new BigDecimal(Utilitarios.valorEmSegundos(this.video.getDuracao()).toString())).toString();
+
+			} else if (this.tipoMidia.getId().equals(Constantes.IMPRESSO) && !TSUtil.isEmpty(this.impresso) && !TSUtil.isEmpty(this.impresso.getId())) {
+
+				this.valoracao = this.getSecao().getValor().multiply(new BigDecimal(this.impresso.getTamanho().toString())).toString();
+
+			} else if (!TSUtil.isEmpty(this.web) && !TSUtil.isEmpty(this.web.getId())) {
+
+				this.valoracao = this.getSecao().getValor().multiply(new BigDecimal(this.web.getPixels().toString())).toString();
+			}
+		}
+
+		return valoracao;
+	}
+
+	public void setValoracao(String valoracao) {
+		this.valoracao = valoracao;
 	}
 }

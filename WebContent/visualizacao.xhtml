@@ -117,14 +117,17 @@ jQuery(function($){
   
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==1}">
 	  <div class="clipping-mailing-radio">
-	    <div class="clipping-title">Exibindo conteúdo de rádio</div>
-		    <audio controls="controls"> 
-				<source src="#{visualizacaoFaces.midia.arquivoFormatado}" type="audio/mp3"/>
-			</audio>
+	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
+		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}">
+	  			<f:param name="autostart" value="false"/>
+	  		</p:media>
 		    <div class="clipping-info-wrapper">
 		    <div class="clipping-info-radio">
 			    <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
-				<div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}</div>
+				<div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}, #{visualizacaoFaces.midia.secao.descricao}</div>
+				<h:panelGroup rendered="#{visualizacaoFaces.midia.exibirValoracao}">
+					<div class="clipping-info">Valoração: R$ #{visualizacaoFaces.midia.valoracao}</div>
+				</h:panelGroup>
 		    </div>
 		        <div class="icone-aval-mailing">
 		        	<h:panelGroup rendered="#{visualizacaoFaces.midia.avaliacao.id==1}">
@@ -158,14 +161,17 @@ jQuery(function($){
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==2}">
   	
   	<div class="clipping-mailing">
-	    <div class="clipping-title">Exibindo conteúdo de TV</div>
-		    <video controls="controls">
-	          <source src="#{visualizacaoFaces.midia.arquivoFormatado}" type="video/mp4"/>
-	        </video>
+	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
+		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}">
+	  			<f:param name="autostart" value="false"/>
+	  		</p:media>
 	    	<div class="clipping-info-wrapper">
 			<div class="clipping-info-mailing">
 			  	<div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
-			 	<div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}</div>
+			 	<div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}, #{visualizacaoFaces.midia.secao.descricao}</div>
+			 	<h:panelGroup rendered="#{visualizacaoFaces.midia.exibirValoracao}">
+					<div class="clipping-info">Valoração: R$ #{visualizacaoFaces.midia.valoracao}</div>
+				</h:panelGroup>
 			</div>
 	        <div class="icone-aval-mailing">
 	        	<h:panelGroup rendered="#{visualizacaoFaces.midia.avaliacao.id==1}">
@@ -199,15 +205,18 @@ jQuery(function($){
   
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==3}">
   <div class="clipping-mailing-impresso">
-    <div class="clipping-title">Exibindo conteúdo de mídia impressa</div>
+    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
     <div class="content-clipping-impresso"><img src="#{facesContext.externalContext.requestContextPath}#{visualizacaoFaces.midia.arquivoFormatado}" border="0"/></div>
     <div class="clipping-info-wrapper">
       <div class="clipping-info-mailing">
         <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
-        <div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}</div>
+        <div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}, #{visualizacaoFaces.midia.secao.descricao}<h:panelGroup rendered="#{!empty visualizacaoFaces.midia.impresso.numeroPagina}">, Pag. #{visualizacaoFaces.midia.impresso.numeroPagina}</h:panelGroup></div>
         <h:panelGroup rendered="#{!empty visualizacaoFaces.midia.impresso.numeroPagina}">
         	<div class="clipping-info">, Pag. #{visualizacaoFaces.midia.impresso.numeroPagina}</div>
         </h:panelGroup>
+        <h:panelGroup rendered="#{visualizacaoFaces.midia.exibirValoracao}">
+			<div class="clipping-info">Valoração: R$ #{visualizacaoFaces.midia.valoracao}</div>
+		</h:panelGroup>
       </div>
       <div class="icone-aval-mailing">
       	<h:panelGroup rendered="#{visualizacaoFaces.midia.avaliacao.id==1}">
@@ -241,7 +250,7 @@ jQuery(function($){
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==4}">
   	
   	<div class="clipping-mailing">
-	    <div class="clipping-title">Exibindo conteúdo da Web</div>
+	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
 	    <div class="web-content-mailing">
 	      <h:outputText value="#{visualizacaoFaces.midia.web.conteudo}" escape="false"/>
 	      <div class="line-web"></div>
@@ -262,7 +271,10 @@ jQuery(function($){
 	    <div class="clipping-info-wrapper">
 	      <div class="clipping-info-mailing">
 	        <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
-	        <div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}</div>
+	        <div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}, #{visualizacaoFaces.midia.secao.descricao}</div>
+	        <h:panelGroup rendered="#{visualizacaoFaces.midia.exibirValoracao}">
+				<div class="clipping-info">Valoração: R$ #{visualizacaoFaces.midia.valoracao}</div>
+			</h:panelGroup>
 	      </div>
 	      <div class="icones-wrapper">
 	        <div class="icone-aval-mailing">

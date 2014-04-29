@@ -65,7 +65,7 @@ where
 				</textElement>
 				<text><![CDATA[Publicada em:]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy HH:mm:ss">
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="79" y="9" width="119" height="20" isPrintWhenDetailOverflows="true" uuid="5ea70f4a-55c3-4412-a000-0ea64a11ec63"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
