@@ -108,8 +108,8 @@ p{
 }
 
 .logo{
-	width: 200px;
-	height: 195px;
+	width: 377px;
+	height: 106px;
 	margin: 15px auto 0 auto;
 }
 
@@ -694,8 +694,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 
 .content-page-portifolio{
 	width: 90%;
-	height: 300px;
-	overflow: auto;
 	padding-right: 20px;
 	margin: 80px auto 0 auto;
 }
@@ -1203,7 +1201,7 @@ margin-top: 4px;
 
 
 .clipping-content{
-	width: 80%;
+	width: 85%;
 	margin: 10px 0 10px 0;
 	display: none;
 }
@@ -1216,8 +1214,8 @@ margin-top: 4px;
 	opacity: 0.7; 
 	color: #FFF;
 	display: none; 
-	position: absolute;
-	top: 75%;
+	position: fixed;
+	top: 70%;
 	padding: 20px 8% 20px 8%;
 }
 
@@ -1307,7 +1305,7 @@ margin-top: 4px;
 }
 
 .imagem-clipping img{
-	width: 100%;
+	width: 30%;
 }
 
 .content-clipping-impresso{
@@ -1344,32 +1342,6 @@ background: -o-linear-gradient(left,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* O
 background: -ms-linear-gradient(left,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* IE10+ */
 background: linear-gradient(to right,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', endColorstr='#0080c3',GradientType=1 ); /* IE6-8 */	
-}
-
-.botao-salvarImpresso {
-	padding: 5px 10px;
-	font-family: 'Bree Light';
-	font-size: 14px;
-	text-align: center;
-	border-radius: 5px;
-	margin-top: 20px;
-	float: right;
-	background: #0a5b9b; /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBhNWI5YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzAwNmVhZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDgwYzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(left,  #0a5b9b 0%, #006eae 50%, #0080c3 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, right top, color-stop(0%,#0a5b9b), color-stop(50%,#006eae), color-stop(100%,#0080c3)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(left,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(left,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(left,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* IE10+ */
-background: linear-gradient(to right,  #0a5b9b 0%,#006eae 50%,#0080c3 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', endColorstr='#0080c3',GradientType=1 ); /* IE6-8 */	
-}
-
-
-.botao-salvarImpresso a{
-	text-decoration: none;
-	color: #FFF;
 }
 
 .botao-voltar a{
@@ -1458,10 +1430,6 @@ video{
 	border: 1px #666 dotted;
 }
 
-.web-content{
-	width: 80%;
-}
-
 .web-content-mailing{
 	background-color: #FFF;
 }
@@ -1472,7 +1440,7 @@ video{
 
 .botao-web, .botao-tv, 
 .botao-impresso, .botao-radio,
-.botao-ver-fonte{
+.botao-ver-fonte, .botao-salvar-impresso{
 	float: right;
 	font-family: 'Bree Light';
 	font-size: 12px;
@@ -1495,7 +1463,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 
 .botao-web a, .botao-tv a, 
 .botao-impresso a, .botao-radio a,
-.botao-ver-fonte a{
+.botao-ver-fonte a, .botao-salvar-impresso a{
 	text-decoration: none;
 	color: #fff;
 }
@@ -1503,6 +1471,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 .botao-tv, .botao-impresso,
 .botao-radio{
 	margin: 0 10px 0 0;
+}
+
+.botao-salvar-impresso{
+	margin: 20px 10px 0 0;
+	font-size: 14px;
 }
 
 .mensagem-login{
@@ -1536,25 +1509,11 @@ input.login-obrigatorio{
 	width: 200px;
 	height: 20px;
 	font-family: "Bree Light";
-	font-size: 24px;
+	font-size: 16px;
 	color: #999;
 	border: 1px #999 solid;
 	border-radius: 10px;
 	outline: none;
 	padding: 5px;
 	float: right;
-}
-
-textarea#mensagem{
-	width: 377px;
-	height: 86px;
-	font-family: 'Bree Thin';
-	color: #C2C4C6;
-	background-image: url(../images/textarea-field.png);
-	background-repeat: no-repeat;
-	resize: none;
-	outline: none;
-	border: none;
-	margin: 10px 0px 0px 20px;
-	padding: 5px 10px 0px 10px;
 }
