@@ -37,9 +37,15 @@ public class JspFilter implements Filter {
 
 		HttpServletResponse response = (HttpServletResponse) resp;
 
+		String uri = request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/") + 1);
+
+		int indiceFimUri = uri.lastIndexOf("?") == -1 ? uri.length() : uri.lastIndexOf("?");
+
+		uri = uri.substring(uri.lastIndexOf("/") + 1, indiceFimUri);
+
 		String noticia = req.getParameter("noticia");
 
-		if (noticia != null && noticia.length() > 0) {
+		if (uri.contains("clippingMultimidiaDownloadX.jsp") && noticia != null && noticia.length() > 0) {
 
 			String noticiaDecodificada = Utilitarios.decodificar(noticia);
 
@@ -59,20 +65,24 @@ public class JspFilter implements Filter {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (NoSuchPaddingException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					} catch (BadPaddingException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					} catch (NoSuchAlgorithmException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					} catch (IllegalBlockSizeException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				}
 			}
+			
+		} else {
+
+			response.sendRedirect(request.getContextPath() + "/");
 		}
 
 		if (!response.isCommitted()) {

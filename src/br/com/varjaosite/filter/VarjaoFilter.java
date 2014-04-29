@@ -40,7 +40,7 @@ public class VarjaoFilter implements Filter {
 
 		Cliente cliente = (Cliente) request.getSession().getAttribute(br.com.varjaosite.util.Constantes.USUARIO_CONECTADO);
 
-		if (uri.equals("clipping.xhtml") && TSUtil.isEmpty(cliente)) {
+		if (uri.equals("clipping_impresso_ampliado.xhtml") || uri.equals("clipping.xhtml") && TSUtil.isEmpty(cliente)) {
 
 			response.sendRedirect(request.getContextPath() + "/login.xhtml");
 

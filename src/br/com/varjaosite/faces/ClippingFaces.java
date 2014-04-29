@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,7 +33,7 @@ import br.com.varjaosite.model.TipoMidia;
 import br.com.varjaosite.util.Constantes;
 import br.com.varjaosite.util.Utilitarios;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(name = "clippingFaces")
 public class ClippingFaces extends TSMainFaces {
 
@@ -154,13 +154,6 @@ public class ClippingFaces extends TSMainFaces {
 				this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(), TSDateUtil.DD_MM_YYYY));
 
 			}
-
-			// this.getMidiaEnvio().setDataEnvio(TSParseUtil.stringToDate(this.getDataInicial(),
-			// TSDateUtil.DD_MM_YYYY));
-
-			// this.getMidiaEnvio().setDataEnvioFinal(TSParseUtil.stringToDate(this.getDataFinal(),
-			// TSDateUtil.DD_MM_YYYY));
-
 		}
 
 		return validado;
@@ -217,7 +210,7 @@ public class ClippingFaces extends TSMainFaces {
 	public String actionListener() {
 
 		this.tratarArquivo();
-		
+
 		super.addObjectInSession(Constantes.IMAGEM_IMPRESSO_AMPLIADO, this.midia.getArquivoFormatado());
 
 		return Constantes.PAGINA_CLIPPING_IMPRESSO_AMPLIADO;
@@ -312,4 +305,5 @@ public class ClippingFaces extends TSMainFaces {
 	public void setDataInicial(String dataInicial) {
 		this.dataInicial = dataInicial;
 	}
+
 }

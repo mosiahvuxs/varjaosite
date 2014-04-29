@@ -1440,7 +1440,7 @@ video{
 
 .botao-web, .botao-tv, 
 .botao-impresso, .botao-radio,
-.botao-ver-fonte{
+.botao-ver-fonte, .botao-salvar-impresso{
 	float: right;
 	font-family: 'Bree Light';
 	font-size: 12px;
@@ -1463,7 +1463,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 
 .botao-web a, .botao-tv a, 
 .botao-impresso a, .botao-radio a,
-.botao-ver-fonte a{
+.botao-ver-fonte a, .botao-salvar-impresso a{
 	text-decoration: none;
 	color: #fff;
 }
@@ -1471,6 +1471,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 .botao-tv, .botao-impresso,
 .botao-radio{
 	margin: 0 10px 0 0;
+}
+
+.botao-salvar-impresso{
+	margin: 20px 10px 0 0;
+	font-size: 14px;
 }
 
 .mensagem-login{

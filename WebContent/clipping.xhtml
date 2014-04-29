@@ -195,7 +195,7 @@ jQuery(function($){
     <div class="sombra-direita"></div>
   </div>
 	
-	<h:form id="formClipping" prependId="false">
+	<h:form id="formClipping">
   	
   	<div class="content-clipping-wrapper"> 
   	
@@ -298,7 +298,6 @@ jQuery(function($){
 			 	<h:commandLink action="#{clippingFaces.actionListener}">
 			 		<h:graphicImage value="#{item.arquivoFormatado}"/>
 			 		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}" />
-			 		<f:ajax/>
 			 	</h:commandLink>
 			 	</div>
 			 	<h:panelGroup rendered="#{item.arquivoEmDisco}">
