@@ -36,7 +36,7 @@ jQuery(function($){
 
 <h:body>
 
-<h:form>
+<h:form id="form" prependId="false">
 
 <div class="site-wrapper"> 
   
@@ -59,9 +59,11 @@ jQuery(function($){
 		<a href="#{facesContext.externalContext.requestContextPath}/clipping.xhtml">Voltar</a>
 	</div>
 	
+	<h:panelGroup rendered="#{visualizacaoFaces.midia.arquivoEmDisco}">
 	<div class="botao-salvar-impresso">
 		<h:commandLink value="Salvar" action="#{clippingFaces.download}" />
 	</div>
+	</h:panelGroup>
 	
   	<div class="sombra-base"></div>
   

@@ -55,7 +55,9 @@ jQuery(function($){
       <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
       <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
       <h:panelGroup rendered="#{empty sessionScope.usuarioConectado.id}">
+      <h:form prependId="false">
       <div class="item-menu"><a href="login.xhtml">LOGIN</a></div>
+      </h:form>
       </h:panelGroup>
       <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
       <div class="item-menu">
@@ -104,7 +106,7 @@ jQuery(function($){
     <div class="widget-clipping">
       <div class="widget-content">
         <div class="widget-icon"><img src="#{facesContext.externalContext.requestContextPath}/images/widget-clipping.png" border="0"/></div>
-        <div class="widget-item">CLIPPING</div>
+        <div class="widget-item"><a href="clipping.xhtml">CLIPPING</a></div>
         <div class="widget-arrow"><img src="#{facesContext.externalContext.requestContextPath}/images/arrow.png" border="0"/></div>
       </div>
     </div>
