@@ -168,16 +168,16 @@ public class LoginFaces extends TSMainFaces {
 
 		TSFacesUtil.removeObjectInSession(Constantes.USUARIO_CONECTADO);
 
-		TSFacesUtil.getRequest().getSession().invalidate();
-
 		try {
-
-			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath());
-
+			
+			TSFacesUtil.getFacesContext().getExternalContext().redirect(TSFacesUtil.getRequest().getContextPath());
+			
 		} catch (IOException e) {
-
+			
 			e.printStackTrace();
 		}
+
+		TSFacesUtil.getRequest().getSession().invalidate();
 
 		return null;
 

@@ -174,12 +174,13 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 		try {
 
-			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath());
+			TSFacesUtil.getFacesContext().getExternalContext().redirect(TSFacesUtil.getRequest().getContextPath());
 
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
+
 	}
 
 	private void redirecionarLogin(String clienteId, String midiaId) {

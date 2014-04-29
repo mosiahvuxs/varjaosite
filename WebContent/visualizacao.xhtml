@@ -54,12 +54,12 @@ jQuery(function($){
       <div class="item-menu-atuacao"><a href="#">ATUAÇÃO</a></div>
       <div class="item-menu-clientes"><a href="#">CLIENTES</a></div>
       <div class="item-menu"><a href="portifolio.xhtml">PORTFÓLIO</a></div>
-      <h:panelGroup rendered="#{empty sessionScope.usuarioConectado.id}">
+      <h:panelGroup rendered="#{empty visualizacaoFaces.midia.cliente.id}">
       <h:form prependId="false">
       <div class="item-menu"><a href="login.xhtml">LOGIN</a></div>
       </h:form>
       </h:panelGroup>
-      <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
+      <h:panelGroup rendered="#{!empty visualizacaoFaces.midia.cliente.id}">
       <div class="item-menu">
       <h:form id="formLogout">
       	<h:commandLink value="SAIR" action="#{loginFaces.sair}"/>
