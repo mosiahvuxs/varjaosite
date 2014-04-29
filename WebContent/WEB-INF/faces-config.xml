@@ -8,6 +8,16 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>clipping</from-outcome>
 			<to-view-id>/clipping.xhtml</to-view-id>
 			<redirect />
@@ -15,22 +25,6 @@
 		<navigation-case>
 			<from-outcome>clipping_impresso_ampliado</from-outcome>
 			<to-view-id>/clipping_impresso_ampliado.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<from-view-id>*</from-view-id>
-		<navigation-case>
-			<from-outcome>login</from-outcome>
-			<to-view-id>/login.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<from-view-id>*</from-view-id>
-		<navigation-case>
-			<from-outcome>index</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
-			<redirect />
 		</navigation-case>
 	</navigation-rule>
 

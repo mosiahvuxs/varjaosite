@@ -52,14 +52,14 @@ jQuery(function($){
   <div class="clear"></div>
   
   	<div class="content-clipping-impresso">
-  		<h:graphicImage value="#{sessionScope.imagemImpressoAmpliado}" alt=""/>
+  		<h:graphicImage value="#{clippingFaces.midia.arquivoFormatado}" alt=""/>
 	</div>
 	
 	<div class="botao-voltar">
 		<a href="#{facesContext.externalContext.requestContextPath}/clipping.xhtml">Voltar</a>
 	</div>
 	
-	<h:panelGroup rendered="#{visualizacaoFaces.midia.arquivoEmDisco}">
+	<h:panelGroup rendered="#{clippingFaces.midia.arquivoEmDisco}">
 	<div class="botao-salvar-impresso">
 		<h:commandLink value="Salvar" action="#{clippingFaces.download}" />
 	</div>
