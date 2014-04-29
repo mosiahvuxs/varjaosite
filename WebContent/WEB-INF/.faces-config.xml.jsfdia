@@ -4,22 +4,24 @@
   <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="index::#index.xhtml" NAME="output"
     PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="clipping::#clipping.xhtml" NAME="output1"
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="clipping::#clipping.xhtml" NAME="output2"
     PATH="/clipping.xhtml" TARGET="rules:#clipping.xhtml"
     TITLE="clipping" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="clipping_impresso_ampliado::#clipping_impresso_ampliado.xhtml"
-    NAME="output2" PATH="/clipping_impresso_ampliado.xhtml"
+    NAME="output3" PATH="/clipping_impresso_ampliado.xhtml"
     TARGET="rules:#clipping_impresso_ampliado.xhtml"
     TITLE="clipping_impresso_ampliado" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
-  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#clipping.xhtml" PATH="/clipping.xhtml"
   SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
   SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#clipping_impresso_ampliado.xhtml"
   PATH="/clipping_impresso_ampliado.xhtml" SHAPE="256,401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="288,353,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

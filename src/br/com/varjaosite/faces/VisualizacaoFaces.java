@@ -174,7 +174,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 		try {
 
-			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath() + "/index.xhtml");
+			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath());
 
 		} catch (IOException e) {
 

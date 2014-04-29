@@ -170,7 +170,16 @@ public class LoginFaces extends TSMainFaces {
 
 		TSFacesUtil.getRequest().getSession().invalidate();
 
-		return Constantes.INDEX;
+		try {
+
+			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath());
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
 
 	}
 
