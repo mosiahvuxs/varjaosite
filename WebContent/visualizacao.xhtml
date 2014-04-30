@@ -24,13 +24,6 @@ jQuery(function($){
 <script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-atuacao.js"></script>
 <script src="#{facesContext.externalContext.requestContextPath}/scripts/submenu-clientes.js"></script>
 <script src="#{facesContext.externalContext.requestContextPath}/scripts/modal-impresso.js"></script>
-<!--[if gte IE 9]>
-  <style type="text/css">
-    .gradient {
-       filter: none;
-    }
-  </style>
-<![endif]-->
 
 <title>Varjão - Comunicação Integrada</title>
 
@@ -164,10 +157,9 @@ jQuery(function($){
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==2}">
   	
   	<div class="clipping-mailing">
+  	
 	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
-		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}" player="windows" width="600" height="400">
-	  			<f:param name="autostart" value="false"/>
-	  		</p:media>
+	    	
 	    	<div class="clipping-info-wrapper">
 			<div class="clipping-info-mailing">
 			  	<div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>

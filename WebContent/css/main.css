@@ -689,7 +689,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 }
 
 .content-page, .content-cases{
-	margin: 80px auto 0 auto;
+	margin: 10% auto 0 auto;
 }
 
 .content-page-portifolio{
@@ -731,7 +731,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 }
 
 .content-login{
-	margin-top: 10%;
+	margin: 15% 0 15% 0;
 }
 
 .content-vazio{

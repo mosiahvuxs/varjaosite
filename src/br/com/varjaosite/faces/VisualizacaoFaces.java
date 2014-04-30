@@ -100,6 +100,19 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 							e.printStackTrace();
 						}
+
+						if (this.midia.getTipoMidia().getId().equals(Constantes.VIDEO)) {
+
+							try {
+
+								TSFacesUtil.getFacesContext().getExternalContext().redirect(this.midia.getArquivoFormatado());
+
+							} catch (IOException e) {
+
+								e.printStackTrace();
+							}
+
+						}
 					}
 
 				} else {
