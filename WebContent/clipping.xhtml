@@ -29,7 +29,12 @@ jQuery(function($){
 <title>Varjão - Clipping</title>
 </h:head>
 
-<body>
+<h:body>
+
+<h:form prependId="false" id="formPesquisa">
+
+<p:growl showDetail="true" sticky="false" life="3600" showSummary="false"/>
+
 <div class="site-wrapper"> 
   <!--INÍCIO DO INCLUDE NA ÁREA DE CLIPPING COM USUÁRIO AUTENTICADO-->
   <div class="barra-topo"></div>
@@ -52,9 +57,7 @@ jQuery(function($){
       </h:panelGroup>
       <h:panelGroup rendered="#{!empty sessionScope.usuarioConectado.id}">
       <div class="item-menu">
-      <h:form id="formLogout">
       	<h:commandLink value="SAIR" action="#{loginFaces.sair}"/>
-      </h:form>
       </div>
       </h:panelGroup>
     </div>
@@ -101,10 +104,6 @@ jQuery(function($){
         <div class="widget-item">CLIPPING</div>
         <div class="widget-arrow"><img src="#{facesContext.externalContext.requestContextPath}/images/arrow.png" border="0"/></div>
       </div>
-
-      <h:form styleClass="busca-avancada" prependId="false" id="formPesquisa">
-      	
-      	<p:growl showDetail="true" sticky="false" life="3000" showSummary="false"/>
       	
       	<p:outputPanel id="otpPesquisa">
 			
@@ -171,8 +170,6 @@ jQuery(function($){
 	    <h:commandButton action="#{clippingFaces.findEvent}" value="pesquisar" styleClass="botao-pesquisar"/>
 	    
         </p:outputPanel>
-          
-      </h:form>
       
       <div class="bem-vindo-wrapper">
         <div class="bem-vindo">Olá,</div>
@@ -189,12 +186,8 @@ jQuery(function($){
     <div class="sombra-direita"></div>
   </div>
 	
-	<h:form id="formClipping">
-  	
   	<div class="content-clipping-wrapper"> 
   	
-  	<p:growl autoUpdate="true" showDetail="true" sticky="false" life="3000" showSummary="false"/>
-
     <div class="left-box">
     
       <div class="box-arrow"></div>
@@ -326,8 +319,6 @@ jQuery(function($){
     
   </div>
   
-  </h:form>
-  
   <div class="clear"></div>
   
   <div class="sombra-base"></div>
@@ -338,6 +329,8 @@ jQuery(function($){
   
 </div>
 
-</body>
+</h:form>
+
+</h:body>
 
 </html>
