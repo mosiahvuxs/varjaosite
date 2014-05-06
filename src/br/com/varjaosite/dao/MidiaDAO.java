@@ -5,6 +5,8 @@ import java.util.List;
 import br.com.topsys.database.TSDataBaseBrokerIf;
 import br.com.topsys.database.factory.TSDataBaseBrokerFactory;
 import br.com.topsys.exception.TSApplicationException;
+import br.com.topsys.util.TSDateUtil;
+import br.com.topsys.util.TSParseUtil;
 import br.com.topsys.util.TSUtil;
 import br.com.varjaosite.model.Cliente;
 import br.com.varjaosite.model.Interesse;
@@ -226,7 +228,7 @@ public class MidiaDAO {
 			sql.append(" AND SEM_ACENTOS(M.CHAMADA) ILIKE ?");
 		}
 
-		sql.append(" AND TO_DATE(TO_CHAR(M.DATA, 'DD/MM/YYYY'), 'DD/MM/YYYY') BETWEEN ? AND ?");
+		sql.append(" AND CAST(M.DATA AS DATE) BETWEEN TO_DATE(?, 'DD/MM/YYYY') AND TO_DATE(?, 'DD/MM/YYYY')");
 
 		sql.append(" AND ME.CLIENTE_ID = ?");
 
@@ -254,9 +256,9 @@ public class MidiaDAO {
 			broker.set("%" + model.getMidia().getChamada() + "%");
 		}
 
-		broker.set(model.getDataEnvio());
+		broker.set(TSParseUtil.dateToString(model.getDataEnvio(), TSDateUtil.DD_MM_YYYY));
 
-		broker.set(model.getDataEnvioFinal());
+		broker.set(TSParseUtil.dateToString(model.getDataEnvioFinal(), TSDateUtil.DD_MM_YYYY));
 
 		broker.set(model.getCliente().getId());
 
