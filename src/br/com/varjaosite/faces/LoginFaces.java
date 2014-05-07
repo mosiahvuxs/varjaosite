@@ -33,6 +33,8 @@ public class LoginFaces extends TSMainFaces {
 
 	public LoginFaces() {
 
+		this.initObjetos();
+
 		String clienteId = TSFacesUtil.getRequestParameter("cliente");
 
 		String midiaId = TSFacesUtil.getRequestParameter("midia");
@@ -80,9 +82,6 @@ public class LoginFaces extends TSMainFaces {
 				e.printStackTrace();
 			}
 
-		} else {
-
-			this.initObjetos();
 		}
 
 	}
@@ -169,11 +168,11 @@ public class LoginFaces extends TSMainFaces {
 		TSFacesUtil.removeObjectInSession(Constantes.USUARIO_CONECTADO);
 
 		try {
-			
+
 			TSFacesUtil.getFacesContext().getExternalContext().redirect(TSFacesUtil.getRequest().getContextPath());
-			
+
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 		}
 
