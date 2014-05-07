@@ -1440,7 +1440,7 @@ video{
 
 .botao-web, .botao-tv, 
 .botao-impresso, .botao-radio,
-.botao-ver-fonte, .botao-salvar-impresso{
+.botao-ver-fonte, .botao-salvar-impresso, .botao-anterior, .botao-proxima{
 	float: right;
 	font-family: 'Bree Light';
 	font-size: 12px;

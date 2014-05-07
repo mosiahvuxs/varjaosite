@@ -8,7 +8,7 @@ public final class Constantes {
 
 	public static final String USUARIO_CONECTADO = "usuarioConectado";
 	
-	public static final String URL_SITE_PRODUCAO = "http://www.varjaoeassociados.com.br:8081";
+	public static final String URL_SITE_PRODUCAO = "http://www.varjao.com";
 
 	public static final String USUARIOS_CONECTADOS = "usuariosConectados";
 
