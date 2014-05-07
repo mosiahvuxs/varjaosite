@@ -11,8 +11,8 @@ public class Main {
 
 		System.out.println(valorDecodificado);
 
-		System.out.println(valorDecodificado.substring(11, 13));
-		System.out.println(valorDecodificado.substring(23, valorDecodificado.length() - 1));
+		System.out.println(valorDecodificado.substring(11, valorDecodificado.indexOf(",")));
+		System.out.println(valorDecodificado.substring(valorDecodificado.indexOf(",") + 10, valorDecodificado.length() - 1));
 
 	}
 

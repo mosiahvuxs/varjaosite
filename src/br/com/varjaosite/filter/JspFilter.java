@@ -51,9 +51,9 @@ public class JspFilter implements Filter {
 
 			if (noticiaDecodificada != null && noticiaDecodificada.length() > 0) {
 
-				String cliente = noticiaDecodificada.substring(11, 13);
+				String cliente = noticiaDecodificada.substring(11, noticiaDecodificada.indexOf(","));
 
-				String midia = noticiaDecodificada.substring(23, noticiaDecodificada.length() - 1);
+				String midia = noticiaDecodificada.substring(noticiaDecodificada.indexOf(",") + 10, noticiaDecodificada.length() - 1);
 
 				if (cliente != null && midia != null) {
 
@@ -79,7 +79,7 @@ public class JspFilter implements Filter {
 					}
 				}
 			}
-			
+
 		} else {
 
 			response.sendRedirect(request.getContextPath() + "/");
