@@ -64,12 +64,16 @@ public class VisualizacaoFaces extends TSMainFaces {
 			Cliente cliente = new Cliente();
 
 			if (!TSUtil.isEmpty(codigoIntegracao) && codigoIntegracao.equals("true")) {
+				
+				cliente.setCodigoIntegracao(new Long(clienteIdDescriptografado));
 
-				cliente = new ClienteDAO().obter(new Cliente(Long.valueOf(clienteIdDescriptografado)));
+				cliente = new ClienteDAO().obterPorCodigoIntegracao(cliente);
 
 			} else {
+				
+				cliente.setId(new Long(clienteIdDescriptografado));
 
-				cliente = new ClienteDAO().obter(new Cliente(Long.valueOf(clienteIdDescriptografado)));
+				cliente = new ClienteDAO().obter(cliente);
 			}
 
 			if (!TSUtil.isEmpty(cliente) && !TSUtil.isEmpty(cliente.getId())) {

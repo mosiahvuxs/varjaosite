@@ -64,13 +64,13 @@ public class Cliente implements Serializable {
 	private String logoMarcaFormatada;
 
 	private Boolean flagValorWeb = Boolean.FALSE;
-	
+
 	private Long codigoIntegracao;
 
 	public Cliente() {
 
 	}
-	
+
 	public Cliente(Autenticacao autenticacao) {
 
 		this.autenticacao = autenticacao;

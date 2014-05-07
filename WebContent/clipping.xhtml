@@ -29,7 +29,7 @@ jQuery(function($){
 <title>Varjão - Clipping</title>
 </h:head>
 
-<h:body>
+<body>
 
 <h:form prependId="false" id="formPesquisa">
 
@@ -106,7 +106,7 @@ jQuery(function($){
       </div>
       	
       	<p:outputPanel id="otpPesquisa">
-			
+
   		<div class="field-container">
           <div class="field-wrapper">
             <div class="radio-btn"></div>
@@ -166,9 +166,9 @@ jQuery(function($){
 	    <script type="text/javascript">
 	         $('#titulo').attr('placeholder','TÍTULO');
 	    </script>
-	    
+
 	    <h:commandButton action="#{clippingFaces.findEvent}" value="pesquisar" styleClass="botao-pesquisar"/>
-	    
+
         </p:outputPanel>
       
       <div class="bem-vindo-wrapper">
@@ -185,9 +185,9 @@ jQuery(function($){
     <div class="sombra-esquerda"></div>
     <div class="sombra-direita"></div>
   </div>
-	
-  	<div class="content-clipping-wrapper"> 
   	
+  	<div class="content-clipping-wrapper"> 
+
     <div class="left-box">
     
       <div class="box-arrow"></div>
@@ -223,9 +223,9 @@ jQuery(function($){
         	<f:setPropertyActionListener target="#{clippingFaces.midiaEnvio.midia.tipoMidia.id}" value="2" />
         </h:commandLink>
         </div>
-		
+
 		<div class="menu-box-bar"></div>
-		
+
         <div class="#{clippingFaces.midiaEnvio.midia.tipoMidia.id==4 ? 'item-menu-box-selected' : 'item-menu-box'}">
         <h:commandLink value="WEB" action="#{clippingFaces.findEvent}" style="#{clippingFaces.midiaEnvio.midia.tipoMidia.id==4 ? 'text-decoration: none; color: #fff;' : ''}">
         	<f:setPropertyActionListener target="#{clippingFaces.midiaEnvio.midia.tipoMidia.id}" value="4" />
@@ -238,7 +238,7 @@ jQuery(function($){
     
     <div class="clipping-listagem-wrapper">
     
-    <ui:repeat var="item" value="#{clippingFaces.midias}" step="10">
+    <ui:repeat var="item" value="#{clippingFaces.midias}">
     	
    		<div class="clipping-chamada-wrapper">
 		  <div class="texto-wrapper">
@@ -271,7 +271,7 @@ jQuery(function($){
 		  </div>
 		  <div class="clear"></div>
 		</div>
-			
+
 		<div class="clipping-content">
 			<h:panelGroup rendered="#{item.tipoMidia.id==1}">
 				<p:media value="#{item.arquivoFormatado}" player="windows">
@@ -310,7 +310,7 @@ jQuery(function($){
 		        </div>
 		  	</h:panelGroup>
 		</div>
-			
+
 		<div class="line"></div>
       
       </ui:repeat>
@@ -331,6 +331,6 @@ jQuery(function($){
 
 </h:form>
 
-</h:body>
+</body>
 
 </html>
