@@ -33,13 +33,13 @@ public class LoginFaces extends TSMainFaces {
 
 	public LoginFaces() {
 
+		String idCliente = TSFacesUtil.getRequestParameter("cliente");
+
+		String idMidia = TSFacesUtil.getRequestParameter("midia");
+		
 		this.initObjetos();
 
-		String clienteId = TSFacesUtil.getRequestParameter("cliente");
-
-		String midiaId = TSFacesUtil.getRequestParameter("midia");
-
-		if (!TSUtil.isEmpty(clienteId) && !TSUtil.isEmpty(midiaId)) {
+		if (!TSUtil.isEmpty(idCliente) && !TSUtil.isEmpty(idMidia)) {
 
 			String clienteIdDescriptografado;
 
@@ -47,15 +47,15 @@ public class LoginFaces extends TSMainFaces {
 
 			try {
 
-				clienteIdDescriptografado = TSCryptoUtil.desCriptografar(clienteId);
+				clienteIdDescriptografado = TSCryptoUtil.desCriptografar(idCliente);
 
-				midiaIdDescriptografado = TSCryptoUtil.desCriptografar(midiaId);
+				midiaIdDescriptografado = TSCryptoUtil.desCriptografar(idMidia);
 
 				if (TSUtil.isNumeric(clienteIdDescriptografado) && TSUtil.isNumeric(midiaIdDescriptografado)) {
 
-					this.clienteId = clienteId;
+					this.clienteId = idCliente;
 
-					this.midiaId = midiaId;
+					this.midiaId = idMidia;
 
 				} else {
 
@@ -63,22 +63,22 @@ public class LoginFaces extends TSMainFaces {
 				}
 
 			} catch (InvalidKeyException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (NoSuchPaddingException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (BadPaddingException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (NoSuchAlgorithmException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IllegalBlockSizeException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 
@@ -153,7 +153,7 @@ public class LoginFaces extends TSMainFaces {
 
 		try {
 
-			TSFacesUtil.getResponse().sendRedirect("/visualizacao.xhtml?cliente=" + clienteId + "&midia=" + midiaId);
+			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath() + "/visualizacao.xhtml?cliente=" + clienteId + "&midia=" + midiaId);
 
 		} catch (IOException e) {
 
