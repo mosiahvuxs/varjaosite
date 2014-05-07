@@ -55,6 +55,8 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 		String codigoIntegracao = TSFacesUtil.getRequestParameter("codigoIntegracao");
 
+		String verificado = TSFacesUtil.getRequestParameter("verificado");
+
 		if (!TSUtil.isEmpty(clienteId) && !TSUtil.isEmpty(midiaId) && TSUtil.isNumeric(TSCryptoUtil.desCriptografar(clienteId)) && TSUtil.isNumeric(TSCryptoUtil.desCriptografar(midiaId))) {
 
 			String clienteIdDescriptografado = TSCryptoUtil.desCriptografar(clienteId);
@@ -64,13 +66,13 @@ public class VisualizacaoFaces extends TSMainFaces {
 			Cliente cliente = new Cliente();
 
 			if (!TSUtil.isEmpty(codigoIntegracao) && codigoIntegracao.equals("true")) {
-				
+
 				cliente.setCodigoIntegracao(new Long(clienteIdDescriptografado));
 
 				cliente = new ClienteDAO().obterPorCodigoIntegracao(cliente);
 
 			} else {
-				
+
 				cliente.setId(new Long(clienteIdDescriptografado));
 
 				cliente = new ClienteDAO().obter(cliente);
@@ -78,9 +80,18 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 			if (!TSUtil.isEmpty(cliente) && !TSUtil.isEmpty(cliente.getId())) {
 
-				super.addObjectInSession(Constantes.USUARIO_CONECTADO, cliente);
+				boolean verificarSenha = true;
 
-				if (!cliente.getFlagExigeSenha()) {
+				if (!TSUtil.isEmpty(verificado) && verificado.equals("true")) {
+
+					verificarSenha = false;
+
+				} else {
+
+					verificarSenha = cliente.getFlagExigeSenha();
+				}
+
+				if (!verificarSenha) {
 
 					if (!this.carregaMidia(Long.valueOf(midiaIdDescriptografado), cliente, codigoIntegracao)) {
 
@@ -160,6 +171,8 @@ public class VisualizacaoFaces extends TSMainFaces {
 			this.getMidia().setCliente(cliente);
 
 			this.tratarArquivo();
+
+			super.addObjectInSession(Constantes.USUARIO_CONECTADO, cliente);
 
 			return true;
 		}

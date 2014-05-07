@@ -153,7 +153,7 @@ public class LoginFaces extends TSMainFaces {
 
 		try {
 
-			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath() + "/visualizacao.xhtml?cliente=" + clienteId + "&midia=" + midiaId);
+			TSFacesUtil.getResponse().sendRedirect(TSFacesUtil.getRequest().getContextPath() + "/visualizacao.xhtml?cliente=" + clienteId + "&midia=" + midiaId + "&verificado=true");
 
 		} catch (IOException e) {
 
