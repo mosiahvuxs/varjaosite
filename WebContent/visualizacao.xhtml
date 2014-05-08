@@ -113,9 +113,9 @@ jQuery(function($){
   <h:panelGroup rendered="#{visualizacaoFaces.midia.tipoMidia.id==1}">
 	  <div class="clipping-mailing-radio">
 	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
-		    <p:media value="#{visualizacaoFaces.midia.arquivoFormatado}" player="windows">
-	  			<f:param name="autostart" value="false"/>
-	  		</p:media>
+	    	<audio controls="controls">
+			  <source src="#{visualizacaoFaces.midia.arquivoFormatado}" type="audio/mpeg"/>
+			</audio>
 		    <div class="clipping-info-wrapper">
 		    <div class="clipping-info-radio">
 			    <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
