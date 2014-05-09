@@ -375,6 +375,11 @@ form.busca-avancada {
 	margin-left: 0;
 }
 
+.busca-avancada-wrapper{
+	width: 58%;
+	margin-left: 0;
+}
+
 .widget-content-wrapper-comunicacao{
 	width: 45%;
 }
@@ -532,7 +537,11 @@ form#contato{
 	height: 280px;
 }
 
-form.busca-avancada {
+form.busca-avancada{
+	width: 52%;
+}
+
+.busca-avancada-wrapper{
 	width: 52%;
 }
 
@@ -702,6 +711,10 @@ form#login-obrigatorio{
 }
 
 form.busca-avancada{
+	width: 60%;
+}
+
+.busca-avancada-wrapper{
 	width: 60%;
 }
 
@@ -932,6 +945,11 @@ form#contato {
 }
 
 form.busca-avancada {
+	width: 70%;
+	margin-left: 0;
+}
+
+.busca-avancada-wrapper{
 	width: 70%;
 	margin-left: 0;
 }
