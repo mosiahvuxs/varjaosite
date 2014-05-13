@@ -10,6 +10,7 @@ import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -22,7 +23,6 @@ import br.com.topsys.util.TSCryptoUtil;
 import br.com.topsys.util.TSDateUtil;
 import br.com.topsys.util.TSUtil;
 import br.com.topsys.web.util.TSFacesUtil;
-import br.com.varjaosite.model.Midia;
 
 public final class Utilitarios {
 
@@ -110,7 +110,7 @@ public final class Utilitarios {
 	}
 
 	@SuppressWarnings("resource")
-	public static byte[] getBytesDownload(File file, Midia midia) {
+	public static byte[] getBytesDownload(File file, Date data, String arquivo) {
 
 		int len = (int) file.length();
 
@@ -120,7 +120,7 @@ public final class Utilitarios {
 
 		try {
 
-			inFile = new FileInputStream(Constantes.PASTA_ARQUIVOS_UPLOAD + TSUtil.getAnoMes(midia.getData()) + midia.getArquivo());
+			inFile = new FileInputStream(Constantes.PASTA_ARQUIVOS_UPLOAD + TSUtil.getAnoMes(data) + arquivo);
 
 			inFile.read(sendBuf, 0, len);
 

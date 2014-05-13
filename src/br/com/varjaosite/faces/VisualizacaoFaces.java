@@ -231,7 +231,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 			File arquivo = new File(Constantes.PASTA_ARQUIVOS_UPLOAD + TSUtil.getAnoMes(this.midia.getData()) + this.midia.getArquivo());
 
-			byte[] b = Utilitarios.getBytesDownload(arquivo, this.midia);
+			byte[] b = Utilitarios.getBytesDownload(arquivo, this.midia.getData(), this.midia.getArquivo());
 
 			if (!TSUtil.isEmpty(b) && b.length > 0) {
 

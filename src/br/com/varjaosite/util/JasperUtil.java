@@ -39,7 +39,7 @@ public class JasperUtil {
 
 			response.setContentType(Constantes.MIME_TYPE_PDF);
 
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + model.getTitulo().toLowerCase() + ".pdf\"");
+			response.setHeader("Content-Disposition", "attachment; filename=\"" + model.getTitulo().toLowerCase()  + "-" + TSUtil.gerarId() + ".pdf\"");
 
 			try {
 
