@@ -40,7 +40,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 	private Midia midia;
 	private StreamedContent file;
-
+	
 	public VisualizacaoFaces() throws UnsupportedEncodingException, InvalidKeyException, NoSuchPaddingException, BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException {
 
 		this.carregar();
@@ -99,35 +99,44 @@ public class VisualizacaoFaces extends TSMainFaces {
 
 					} else {
 
-						MidiaEnvio midiaEnvio = new MidiaEnvio();
+						if (this.midia.getFlagAtivo()) {
 
-						midiaEnvio.setUsuario(new Usuario());
+							MidiaEnvio midiaEnvio = new MidiaEnvio();
 
-						midiaEnvio.setCliente(cliente);
+							midiaEnvio.setUsuario(new Usuario());
 
-						midiaEnvio.setMidia(this.midia);
+							midiaEnvio.setCliente(cliente);
 
-						try {
-
-							new MidiaEnvioDAO().setarVisualizacao(midiaEnvio);
-
-						} catch (TSApplicationException e) {
-
-							e.printStackTrace();
-						}
-
-						if (this.midia.getTipoMidia().getId().equals(Constantes.VIDEO)) {
+							midiaEnvio.setMidia(this.midia);
 
 							try {
 
-								TSFacesUtil.getFacesContext().getExternalContext().redirect(this.midia.getArquivoFormatado());
+								new MidiaEnvioDAO().setarVisualizacao(midiaEnvio);
 
-							} catch (IOException e) {
+							} catch (TSApplicationException e) {
 
 								e.printStackTrace();
 							}
 
+							if (this.midia.getTipoMidia().getId().equals(Constantes.VIDEO)) {
+
+								try {
+
+									TSFacesUtil.getFacesContext().getExternalContext().redirect(this.midia.getArquivoFormatado());
+
+								} catch (IOException e) {
+
+									e.printStackTrace();
+								}
+
+							}
+
+						} else {
+							
+							super.addErrorMessage("A Mídia requisitada não está disponível.");
+
 						}
+
 					}
 
 				} else {
