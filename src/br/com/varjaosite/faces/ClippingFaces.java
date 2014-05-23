@@ -58,7 +58,7 @@ public class ClippingFaces extends TSMainFaces {
 		this.getMidiaEnvio().setCliente((Cliente) TSFacesUtil.getObjectInSession(Constantes.USUARIO_CONECTADO));
 		this.setMidias(new ArrayList<Midia>());
 		this.setMidia(new Midia());
-		this.dataInicial = TSParseUtil.dateToString(TSDateUtil.addDayDate(new Date(), -30), TSDateUtil.DD_MM_YYYY);
+		this.dataInicial = TSParseUtil.dateToString(TSDateUtil.addDayDate(new Date(), -7), TSDateUtil.DD_MM_YYYY);
 		this.dataFinal = TSParseUtil.dateToString(new Date(), TSDateUtil.DD_MM_YYYY);
 
 	}
@@ -141,11 +141,11 @@ public class ClippingFaces extends TSMainFaces {
 
 		if (validado) {
 
-			if (TSDateUtil.diferencaDias(this.dataInicial, this.dataFinal, TSDateUtil.DD_MM_YYYY) > 30l) {
+			if (TSDateUtil.diferencaDias(this.dataInicial, this.dataFinal, TSDateUtil.DD_MM_YYYY) > 7l) {
 
 				validado = false;
 
-				super.addErrorMessage("Para realizar a operação as datas devem abranger o período de 30 dias.");
+				super.addErrorMessage("Para realizar a operação as datas devem abranger o período máximo de 07 dias.");
 
 			} else {
 
