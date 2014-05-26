@@ -16,7 +16,7 @@ where
 	<field name="titulo" class="java.lang.String">
 		<fieldDescription><![CDATA[titulo]]></fieldDescription>
 	</field>
-	<field name="dataPublicacao" class="java.sql.Timestamp">
+	<field name="dataPublicacao" class="java.util.Date">
 		<fieldDescription><![CDATA[dataPublicacao]]></fieldDescription>
 	</field>
 	<field name="fonte" class="java.lang.String">

@@ -1,14 +1,14 @@
 package br.com.varjaosite.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class PdfWeb implements Serializable {
 
 	private String titulo;
 
-	private Timestamp dataPublicacao;
+	private Date dataPublicacao;
 
 	private String fonte;
 
@@ -38,14 +38,6 @@ public class PdfWeb implements Serializable {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public Timestamp getDataPublicacao() {
-		return dataPublicacao;
-	}
-
-	public void setDataPublicacao(Timestamp dataPublicacao) {
-		this.dataPublicacao = dataPublicacao;
 	}
 
 	public String getFonte() {
@@ -78,6 +70,14 @@ public class PdfWeb implements Serializable {
 
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
+	}
+
+	public Date getDataPublicacao() {
+		return dataPublicacao;
+	}
+
+	public void setDataPublicacao(Date dataPublicacao) {
+		this.dataPublicacao = dataPublicacao;
 	}
 
 }
