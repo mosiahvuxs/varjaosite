@@ -257,8 +257,12 @@ jQuery(function($){
 		    </div>
 		  </div>
 		  <div class="botao-salvar-clipping">
-		  	<h:commandLink value="Salvar" action="#{clippingFaces.download}" rendered="#{item.tipoMidia.id!=4}"/>
-		  	<h:commandLink value="Salvar" action="#{clippingFaces.gerarPdf}" rendered="#{item.tipoMidia.id==4}"/>
+		  	<h:commandLink value="Salvar" action="#{clippingFaces.download}" rendered="#{item.tipoMidia.id!=4}">
+		  		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}" />
+		  	</h:commandLink>
+		  	<h:commandLink value="Salvar" action="#{clippingFaces.gerarPdf}" rendered="#{item.tipoMidia.id==4}">
+		  		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}" />
+		  	</h:commandLink>
 		  </div>
 		  <div class="icone-aval">
 		  	<h:panelGroup rendered="#{item.avaliacao.id==1}">
