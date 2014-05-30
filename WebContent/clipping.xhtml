@@ -256,6 +256,10 @@ jQuery(function($){
 		    	<h:panelGroup rendered="#{item.tipoMidia.id==2}">Duração: #{item.video.duracao}</h:panelGroup>
 		    </div>
 		  </div>
+		  <div class="botao-salvar-clipping">
+		  	<h:commandLink value="Salvar" action="#{clippingFaces.download}" rendered="#{item.tipoMidia.id!=4}"/>
+		  	<h:commandLink value="Salvar" action="#{clippingFaces.gerarPdf}" rendered="#{item.tipoMidia.id==4}"/>
+		  </div>
 		  <div class="icone-aval">
 		  	<h:panelGroup rendered="#{item.avaliacao.id==1}">
 		  		<h:graphicImage title="neutro" value="images/neutro.png" />
@@ -283,9 +287,16 @@ jQuery(function($){
 				</audio>
 			</h:panelGroup>
 		  	<h:panelGroup rendered="#{item.tipoMidia.id==2}" player="windows">
-		  		<p:media value="#{item.arquivoFormatado}"  width="400" height="250">
-		  			<f:param name="autostart" value="false"/>
-		  		</p:media>
+		  		<object id="mediaplayer" classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#version=5,1,52,701" standby="loading microsoft windows media player components..." type="application/x-oleobject" width="400" height="250">
+				<param name="filename" value="#{item.arquivoFormatado}"/>
+				     <param name="animationatstart" value="true"/>
+				     <param name="transparentatstart" value="true"/>
+				     <param name="autostart" value="false"/>
+				     <param name="showcontrols" value="true"/>
+				     <param name="ShowStatusBar" value="true"/>
+				     <param name="windowlessvideo" value="true"/>
+				     <embed src="#{item.arquivoFormatado}" autostart="false" showcontrols="true" showstatusbar="1" bgcolor="white" width="400" height="250"/>
+				</object>
 		  	</h:panelGroup>
 			<h:panelGroup rendered="#{item.tipoMidia.id==3}">
 			 	<div class="imagem-clipping">
@@ -305,11 +316,6 @@ jQuery(function($){
 		          <h:panelGroup rendered="#{!empty item.web.url}">
 		          	<div class="botao-ver-fonte"><a href="#{item.web.url}" target="_blank">Ver conteúdo na fonte</a></div>
 		          </h:panelGroup>
-		          <div class="botao-web" style="margin-right: 10px;">
-		          	<h:commandLink value="Salvar PDF" action="#{clippingFaces.gerarPdf}">
-		          		<f:setPropertyActionListener target="#{clippingFaces.midia}" value="#{item}"/>
-		          	</h:commandLink>	
-		          </div>
 		          <div class="clear"></div>
 		        </div>
 		  	</h:panelGroup>

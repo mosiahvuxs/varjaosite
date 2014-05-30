@@ -483,6 +483,10 @@ form#contato{
 	margin-top: 15%;
 }
 
+.texto-wrapper{
+	width: 85%;
+}
+
 .icones-wrapper{
 	width: 9%;
 }
@@ -596,6 +600,10 @@ form#contato{
 
 .clipping-info-mailing, .clipping-info-radio {
 	width: 32%;
+}
+
+.texto-wrapper{
+	width: 85%;
 }
 
 .icones-wrapper{
