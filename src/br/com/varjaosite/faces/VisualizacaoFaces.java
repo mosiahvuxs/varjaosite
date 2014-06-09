@@ -118,7 +118,7 @@ public class VisualizacaoFaces extends TSMainFaces {
 								e.printStackTrace();
 							}
 
-							if (this.midia.getTipoMidia().getId().equals(Constantes.VIDEO)) {
+							/*if (this.midia.getTipoMidia().getId().equals(Constantes.VIDEO)) {
 
 								try {
 
@@ -129,11 +129,11 @@ public class VisualizacaoFaces extends TSMainFaces {
 									e.printStackTrace();
 								}
 
-							}
+							}*/
 
 						} else {
 							
-							super.addErrorMessage("A Mídia requisitada não está disponível.");
+							this.redirecionarInativo();
 
 						}
 
@@ -214,6 +214,19 @@ public class VisualizacaoFaces extends TSMainFaces {
 		try {
 
 			TSFacesUtil.getFacesContext().getExternalContext().redirect(TSFacesUtil.getRequest().getContextPath());
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+	
+	private void redirecionarInativo() {
+
+		try {
+
+			TSFacesUtil.getFacesContext().getExternalContext().redirect(TSFacesUtil.getRequest().getContextPath() + "/inativo.xhtml");
 
 		} catch (IOException e) {
 

@@ -459,14 +459,6 @@ input.botao-busca{
 	width: 100%;
 }
 
-.erro{
-	font-family: 'Bree Light';
-	font-size: 24px;
-	text-align: center;
-	color: #666;
-	margin: 22% auto;
-}
-
 .endereco{
 	font-family: 'Bree Light';
 	font-size: 11px;
@@ -1530,18 +1522,4 @@ input.login-obrigatorio{
 	outline: none;
 	padding: 5px;
 	float: right;
-}
-
-textarea#mensagem{
-	width: 377px;
-	height: 86px;
-	font-family: 'Bree Thin';
-	color: #C2C4C6;
-	background-image: url(../images/textarea-field.png);
-	background-repeat: no-repeat;
-	resize: none;
-	outline: none;
-	border: none;
-	margin: 10px 0px 0px 20px;
-	padding: 5px 10px 0px 10px;
 }
