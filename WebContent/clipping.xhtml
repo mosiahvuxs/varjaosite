@@ -244,7 +244,7 @@ jQuery(function($){
     
     <div class="clipping-listagem-wrapper">
     
-    <ui:repeat var="item" value="#{clippingFaces.midias}">
+    <ui:repeat var="item" value="#{clippingFaces.midias}" varStatus="var">
     	
    		<div class="clipping-chamada-wrapper">
 		  <div class="texto-wrapper">
@@ -287,25 +287,24 @@ jQuery(function($){
 		</div>
 
 		<div class="clipping-content">
-			<h:panelGroup rendered="#{item.tipoMidia.id==1}">
+			<h:panelGroup rendered="#{item.tipoMidia.id==1 and item.arquivoEmDisco}">
+				<div id="mediaspace#{var.index+1}"></div>
 				<script type="text/javascript"> 
-				var cnt = document.getElementById("mediaspace"); 
+				var cnt = document.getElementById("mediaspace#{var.index+1}"); 
 				var src = "mediaplayer/wmv/wmvplayer.xaml"; 
-				var cfg = {height:"50", width:"120", file:"#{item.urlProducao}#{item.arquivoFormatado}", autostart:"false"}; 
+				var cfg = {height:"50", width:"400", file:"#{item.arquivoFormatado}", autostart:"false"}; 
 				var ply = new jeroenwijering.Player(cnt,src,cfg); 
 				</script>
 			</h:panelGroup>
-		  	<h:panelGroup rendered="#{item.tipoMidia.id==2}" player="windows">
-		  		<div style="margin: auto;">
-			    	<div id="mediaspace"></div> 
-					<script type="text/javascript"> 
-					var cnt = document.getElementById("mediaspace"); 
-					var src = "mediaplayer/wmv/wmvplayer.xaml"; 
-					var cfg = {height:"250", width:"400", file:"#{item.urlProducao}#{item.arquivoFormatado}", autostart:"false"}; 
-					var ply = new jeroenwijering.Player(cnt,src,cfg); 
-					</script> 
-			    </div>
-		  	</h:panelGroup>
+		  	<h:panelGroup rendered="#{item.tipoMidia.id==2 and item.arquivoEmDisco}">
+		  		<div id="mediaspace#{var.index+1}"></div> 
+				<script type="text/javascript"> 
+				var cnt = document.getElementById("mediaspace#{var.index+1}"); 
+				var src = "mediaplayer/wmv/wmvplayer.xaml"; 
+				var cfg = {height:"250", width:"400", file:"#{item.arquivoFormatado}", autostart:"false"}; 
+				var ply = new jeroenwijering.Player(cnt,src,cfg); 
+				</script> 
+			</h:panelGroup>
 			<h:panelGroup rendered="#{item.tipoMidia.id==3}">
 			 	<div class="imagem-clipping">
 			 	<h:commandLink action="#{clippingFaces.actionListener}">

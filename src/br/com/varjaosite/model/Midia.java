@@ -75,8 +75,6 @@ public class Midia implements Serializable {
 	private boolean exibirValoracao;
 
 	private String valoracao;
-	
-	private String urlProducao;
 
 	public Midia() {
 
@@ -463,20 +461,4 @@ public class Midia implements Serializable {
 		this.valoracao = valoracao;
 	}
 
-	public String getUrlProducao() {
-		
-		if (!TSFacesUtil.getRequest().getServerName().contains("localhost")) {
-			
-			this.urlProducao = Constantes.URL_SITE_PRODUCAO;
-		
-		} else {
-			
-			this.urlProducao = "";
-		}
-		return urlProducao;
-	}
-
-	public void setUrlProducao(String urlProducao) {
-		this.urlProducao = urlProducao;
-	}
 }

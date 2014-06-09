@@ -1024,7 +1024,7 @@ input.enviar{
 	height: 134px;
 	margin: 20px auto;
 }
-	
+
 form.busca-avancada{
 	width: 55%;
 	margin: 20px 0 0 3%;
@@ -1275,7 +1275,7 @@ margin-top: 4px;
 
 .texto-wrapper{
 	width: 90%;
-	margin: 5px 0 0 10px;
+	margin-top: 5px;
 	float: left;
 	cursor: pointer;
 }
@@ -1301,7 +1301,7 @@ margin-top: 4px;
 .icone-aval{
 	width: 16px;
 	height: 31px;
-	margin: 3px 30px 0 0;
+	margin: 3px 10px 0 0;
 	float: right;
 }
 
@@ -1454,7 +1454,8 @@ video{
 
 .botao-web, .botao-tv, 
 .botao-impresso, .botao-radio,
-.botao-ver-fonte, .botao-salvar-impresso{
+.botao-ver-fonte, .botao-salvar-impresso,
+.botao-salvar-clipping{
 	float: right;
 	font-family: 'Bree Light';
 	font-size: 12px;
@@ -1477,7 +1478,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 
 .botao-web a, .botao-tv a, 
 .botao-impresso a, .botao-radio a,
-.botao-ver-fonte a, .botao-salvar-impresso a{
+.botao-ver-fonte a, .botao-salvar-impresso a,
+.botao-salvar-clipping a{
 	text-decoration: none;
 	color: #fff;
 }
@@ -1490,6 +1492,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a5b9b', end
 .botao-salvar-impresso{
 	margin: 20px 10px 0 0;
 	font-size: 14px;
+}
+
+.botao-salvar-clipping{
+	margin: 0;
 }
 
 .mensagem-login{
