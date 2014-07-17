@@ -7,7 +7,8 @@
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/main.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="#{facesContext.externalContext.requestContextPath}/css/media.css"/>
 
@@ -118,16 +119,13 @@ jQuery(function($){
   <div class="clipping-mailing">
     <div class="clipping-title">Exibindo conteúdo de TV</div>
     <div style="margin: auto;">
-    	<p:media value="http://www.varjao.com/arquivos/varjaoclipping/2014/05/201451920109280.wmv" height="400" width="100%" rendered="false">
-    		<f:param name="autostart" value="true"/>
-    	</p:media>
+    	
+    	<audio controls="controls" autoplay="autoplay">
+			<source src="http://www.varjao.com/arquivos/varjaoclipping/2014/07/201471715263938.mp3" type="audio/mpeg"/>
+		</audio>
+    	
     	<div id="mediaspace22"></div> 
-		<script type="text/javascript"> 
-		var cnt = document.getElementById("mediaspace22"); 
-		var src = "mediaplayer/wmv/wmvplayer.xaml"; 
-		var cfg = {height:"50", width:"200", file:"http://www.varjao.com/arquivos/varjaoclipping/2014/06/20146682153885.mp3", autostart:"true"}; 
-		var ply = new jeroenwijering.Player(cnt,src,cfg); 
-		</script> 
+		
     </div>
     <div class="clipping-info-wrapper">
       <div class="clipping-info-mailing">

@@ -76,6 +76,8 @@ public class Midia implements Serializable {
 
 	private String valoracao;
 
+	private boolean mp4;
+
 	public Midia() {
 
 	}
@@ -459,6 +461,27 @@ public class Midia implements Serializable {
 
 	public void setValoracao(String valoracao) {
 		this.valoracao = valoracao;
+	}
+
+	public boolean isMp4() {
+
+		if (!TSUtil.isEmpty(TSUtil.tratarString(this.getExtensaoArquivo()))) {
+
+			if (this.getExtensaoArquivo().equals("mp4")) {
+
+				this.mp4 = true;
+
+			} else {
+
+				this.mp4 = false;
+			}
+		}
+
+		return mp4;
+	}
+
+	public void setMp4(boolean mp4) {
+		this.mp4 = mp4;
 	}
 
 }

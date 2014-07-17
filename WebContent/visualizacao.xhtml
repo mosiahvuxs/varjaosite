@@ -116,12 +116,9 @@ jQuery(function($){
 	  <div class="clipping-mailing-radio">
 	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
 	    	<div id="mediaspace"></div>
-	    	<script type="text/javascript"> 
-			var cnt = document.getElementById("mediaspace"); 
-			var src = "mediaplayer/wmv/wmvplayer.xaml"; 
-			var cfg = {height:"50", width:"500", file:"#{visualizacaoFaces.midia.arquivoFormatado}", autostart:"true"}; 
-			var ply = new jeroenwijering.Player(cnt,src,cfg); 
-			</script>
+	    	<audio controls="controls" autoplay="autoplay">
+				<source src="#{visualizacaoFaces.midia.arquivoFormatado}" type="audio/mpeg"/>
+			</audio>
 		    <div class="clipping-info-wrapper">
 		    <div class="clipping-info-radio">
 			    <div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
@@ -163,16 +160,28 @@ jQuery(function($){
   	<div class="clipping-mailing">
   	
 	    <div class="clipping-title">#{visualizacaoFaces.midia.titulo}</div>
+	    	
 	    	<div style="margin: auto;">
+		    	
 		    	<div id="mediaspace"></div> 
-				<script type="text/javascript"> 
-				var cnt = document.getElementById("mediaspace"); 
-				var src = "mediaplayer/wmv/wmvplayer.xaml"; 
-				var cfg = {height:"400", width:"100%", file:"#{visualizacaoFaces.midia.arquivoFormatado}", autostart:"true"}; 
-				var ply = new jeroenwijering.Player(cnt,src,cfg); 
-				</script> 
+		    	
+		    	<h:panelGroup rendered="#{!visualizacaoFaces.midia.mp4}">
+					<script type="text/javascript"> 
+					var cnt = document.getElementById("mediaspace"); 
+					var src = "mediaplayer/wmv/wmvplayer.xaml"; 
+					var cfg = {height:"400", width:"100%", file:"#{visualizacaoFaces.midia.arquivoFormatado}", autostart:"true"}; 
+					var ply = new jeroenwijering.Player(cnt,src,cfg); 
+					</script> 
+				</h:panelGroup>
+				
+				<h:panelGroup rendered="#{visualizacaoFaces.midia.mp4}">
+					<video controls="controls" autoplay="autoplay">
+						<source src="#{visualizacaoFaces.midia.arquivoFormatado}" type="video/mp4"/>
+					</video>
+				</h:panelGroup>
+				
 		    </div>
-	    	<div class="clipping-info-wrapper">
+		    <div class="clipping-info-wrapper">
 			<div class="clipping-info-mailing">
 			  	<div class="clipping-info">Publicado em: <h:outputText value="#{visualizacaoFaces.midia.data}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></div>
 			 	<div class="clipping-info">Fonte: #{visualizacaoFaces.midia.secao.veiculo.descricao}, #{visualizacaoFaces.midia.secao.descricao}</div>
